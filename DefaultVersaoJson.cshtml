@@ -1,0 +1,783 @@
+﻿@{
+    Layout = "_Layout.cshtml";
+    Page.Title = "Teste";
+}
+
+@using AppCode
+@using AppCode.Dao
+@using AppCode.Domain;
+@using Newtonsoft.Json;
+
+@functions {
+
+    enum View
+    {
+        Index,
+        New,
+        Edit
+    }
+
+    private class Sistema
+    {
+        public string idSistema { get; set; }
+        public string NomeSistema { get; set; }
+    }
+
+    private class Modulo
+    {
+        public string idModulo { get; set; }
+        public string NomeModulo { get; set; }
+    }
+
+    private class Pagina
+    {
+        public string idPagina { get; set; }
+        public string NomePagina { get; set; }
+    }
+
+    private class Acao
+    {
+        public string idAcao { get; set; }
+        public string CodigoAcao { get; set; }
+        public string NomeAcao { get; set; }
+    }
+
+    private class CoberturaTeste
+    {
+        public decimal ProceduresComTeste { get; set; }
+        public decimal TotalProcedure { get; set; }
+    }
+
+    private class ResultTest
+    {
+        public string idProcedureTest { get; set; }
+        public string NomeProcedure { get; set; }
+        public string Resultado { get; set; }
+        public string ErroMessage { get; set; }
+    }
+
+    private class Procedure
+    {
+        public string idProcedureTest { get; set; }
+        public string IdSistema { get; set; }
+        public string IdModulo { get; set; }
+        public string IdPagina { get; set; }
+        public string IdAcao { get; set; }
+        public string NomeSistema { get; set; }
+        public string NomeModulo { get; set; }
+        public string NomePagina { get; set; }
+        public string NomeAcao { get; set; }
+        public string Descricao { get; set; }
+        public string NomeProcedure { get; set; }
+        public string Ativo { get; set; }
+        public string Parametros { get; set; }
+        public string Expectativa { get; set; }
+    }
+
+    private class Params
+    {
+        public dynamic Key { get; set; }
+        public dynamic Value { get; set; }
+    }
+
+    View view = View.Index;
+    string idSessao = null;
+    string idProcedureTestSelect = null;
+    string parametros = null;
+    string acao = null;
+    bool? passSel = null;
+    bool? passIns = null;
+    bool? passUpd = null;
+    bool deuCerto = false;
+    int contadorAprovado = 0;
+    int contadorReprovado = 0;
+
+    IEnumerable<Botao> listaBotao = null;
+    List<Sistema> listaSistema = null;
+    List<Modulo> listaModulo = null;
+    List<Pagina> listaPagina = null;
+    List<Acao> listaAcao = null;
+
+    CoberturaTeste resultCoberturaTeste = null;
+    List<ResultTest> resultTest = new List<ResultTest>();
+    List<Procedure> ListaProcedures = null;
+    Procedure procedure = null;
+
+    private void AlimentaVariaveis()
+    {
+        listaBotao = new BotaoDao().GetAll();
+        acao = Util.ChecaNulo(Request.Form["acao"]);
+        idProcedureTestSelect = Util.ChecaNulo(Request.Form["idProcedureTestSelect"]);
+
+        procedure = new Procedure()
+        {
+            idProcedureTest = Util.ChecaNulo(Request.Form["idProcedureTest"]),
+            IdSistema = Util.ChecaNulo(Request.Form["idSistema"]),
+            IdModulo = Util.ChecaNulo(Request.Form["idModulo"]),
+            IdPagina = Util.ChecaNulo(Request.Form["idPagina"]),
+            IdAcao = Util.ChecaNulo(Request.Form["idAcao"]),
+            NomeProcedure = Util.ChecaNulo(Request.Form["nomeProcedure"]),
+            Descricao = Util.ChecaNulo(Request.Form["descricao"]),
+            Expectativa = Util.ChecaNulo(Request.Form["expectativa"]),
+            Parametros = Util.ChecaNulo(Request.Form["parametros"])
+        };
+    }
+
+    private string IsInvalid(string key)
+    {
+        return ModelState.IsValidField(key) ? "" : "is-invalid";
+    }
+
+    private void ConsultaSistema()
+    {
+        Dictionary<string, object> parametros = new Dictionary<string, object>();
+        parametros.Add("@IdSessao", "-1");
+        parametros.Add("@TipoConsulta", "C_SISTEMA");
+
+        ManutencaoDAO dao = new ManutencaoDAO();
+        listaSistema = dao.ExecutarProcedureList<Sistema>("stp_Sys_CoberturaTeste_Sel", parametros);
+    }
+
+    private void ConsultaModulo()
+    {
+        Dictionary<string, object> parametros = new Dictionary<string, object>();
+        parametros.Add("@IdSessao", "-1");
+        parametros.Add("@idSistema", procedure.IdSistema);
+        parametros.Add("@TipoConsulta", "C_MODULO");
+
+        ManutencaoDAO dao = new ManutencaoDAO();
+        listaModulo = dao.ExecutarProcedureList<Modulo>("stp_Sys_CoberturaTeste_Sel", parametros);
+    }
+
+    private void ConsultaPagina()
+    {
+        Dictionary<string, object> parametros = new Dictionary<string, object>();
+        parametros.Add("@IdSessao", "-1");
+        parametros.Add("@idSistema", procedure.IdSistema);
+        parametros.Add("@idModulo", procedure.IdModulo);
+        parametros.Add("@TipoConsulta", "C_PAGINA");
+
+        ManutencaoDAO dao = new ManutencaoDAO();
+        listaPagina = dao.ExecutarProcedureList<Pagina>("stp_Sys_CoberturaTeste_Sel", parametros);
+    }
+
+    private void ConsultaAcao()
+    {
+        Dictionary<string, object> parametros = new Dictionary<string, object>();
+        parametros.Add("@IdSessao", "-1");
+        parametros.Add("@idPagina", procedure.IdPagina);
+        parametros.Add("@TipoConsulta", "C_ACAO");
+
+        ManutencaoDAO dao = new ManutencaoDAO();
+        listaAcao = dao.ExecutarProcedureList<Acao>("stp_Sys_CoberturaTeste_Sel", parametros);
+    }
+
+    private void ManutencaoProcedure(string nomeProcedure)
+    {
+        Util.ExceptionHandler(() =>
+        {
+            Dictionary<string, object> parametros = new Dictionary<string, object>();
+            parametros.Add("@IdSessao", "-1");
+            parametros.Add("@IdProcedureTest", procedure.idProcedureTest);
+            parametros.Add("@IdSistema", procedure.IdSistema);
+            parametros.Add("@IdModulo", procedure.IdModulo);
+            parametros.Add("@IdPagina", procedure.IdPagina);
+            parametros.Add("@IdAcao", procedure.IdAcao);
+            parametros.Add("@NomeProcedure", procedure.NomeProcedure);
+            parametros.Add("@Descricao", procedure.Descricao);
+            parametros.Add("@Parametros", procedure.Parametros == null ? procedure.Parametros : procedure.Parametros.ToString());
+            parametros.Add("@Ativo", procedure.Ativo);
+            parametros.Add("@Expectativa", procedure.Expectativa);
+
+            new ManutencaoDAO().ExecutarProcedure(nomeProcedure, parametros);
+
+            ModelState.AddError("alert-success", "Operação realizada com sucesso.");
+            deuCerto = true;
+            procedure.idProcedureTest = null;
+
+        }, this.ModelState);
+    }
+
+    private void ConsultaCobertura()
+    {
+        Dictionary<string, object> parametros = new Dictionary<string, object>();
+        parametros.Add("@IdSessao", "-1");
+        parametros.Add("@TipoConsulta", "C_TOTAL");
+
+        ManutencaoDAO dao = new ManutencaoDAO();
+        resultCoberturaTeste = dao.ExecutarProcedure<CoberturaTeste>("stp_Sys_CoberturaTeste_Sel", parametros);
+    }
+
+    private void ConsultarProcedures()
+    {
+        Dictionary<string, object> parametros = new Dictionary<string, object>();
+        parametros.Add("@IdSessao", "-1");
+        parametros.Add("@idProcedureTest", procedure.idProcedureTest);
+
+        ManutencaoDAO dao = new ManutencaoDAO();
+        ListaProcedures = dao.ExecutarProcedureList<Procedure>("stp_Sys_CoberturaTeste_Sel", parametros);
+    }
+
+    public static string GerarCnpj()
+    {
+        int soma = 0, resto = 0;
+        int[] multiplicador1 = new int[12] { 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
+        int[] multiplicador2 = new int[13] { 6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
+
+        Random rnd = new Random();
+        string semente = rnd.Next(10000000, 99999999).ToString() + "0001";
+
+        for (int i = 0; i < 12; i++)
+            soma += int.Parse(semente[i].ToString()) * multiplicador1[i];
+
+        resto = soma % 11;
+        if (resto < 2)
+            resto = 0;
+        else
+            resto = 11 - resto;
+
+        semente = semente + resto;
+        soma = 0;
+
+        for (int i = 0; i < 13; i++)
+            soma += int.Parse(semente[i].ToString()) * multiplicador2[i];
+
+        resto = soma % 11;
+
+        if (resto < 2)
+            resto = 0;
+        else
+            resto = 11 - resto;
+
+        semente = semente + resto;
+        return semente;
+    }
+
+    public static string GerarCpf()
+    {
+        int soma = 0, resto = 0;
+        int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+        int[] multiplicador2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+
+        Random rnd = new Random();
+        string semente = rnd.Next(100000000, 999999999).ToString();
+
+        for (int i = 0; i < 9; i++)
+            soma += int.Parse(semente[i].ToString()) * multiplicador1[i];
+
+        resto = soma % 11;
+        if (resto < 2)
+            resto = 0;
+        else
+            resto = 11 - resto;
+
+        semente = semente + resto;
+        soma = 0;
+
+        for (int i = 0; i < 10; i++)
+            soma += int.Parse(semente[i].ToString()) * multiplicador2[i];
+
+        resto = soma % 11;
+
+        if (resto < 2)
+            resto = 0;
+        else
+            resto = 11 - resto;
+
+        semente = semente + resto;
+        return semente;
+    }
+
+
+    private void Manutencao(string procedure, string listaParametros, string idProcedureTest)
+    {
+        try
+        {
+            Dictionary<string, object> listaResult = JsonConvert.DeserializeObject<Dictionary<string, object>>(listaParametros);
+
+            Dictionary<string, object> parametros = new Dictionary<string, object>();
+            foreach (KeyValuePair<string, object> p in listaResult)
+            {
+                if (p.Value.ToString() == "randomCNPJ")
+                {
+                    parametros.Add($"@{p.Key}", GerarCnpj());
+                }
+                else if (p.Value.ToString() == "randomCPF")
+                {
+                    parametros.Add($"@{p.Key}", GerarCpf());
+                }
+                else if (p.Value.ToString() == "randomSenha")
+                {
+                    parametros.Add($"@{p.Key}", Util.GerarSenha());
+                }
+                else
+                {
+                    parametros.Add($"@{p.Key}", p.Value);
+                }
+            }
+
+            new ManutencaoDAO().ExecutarProcedure(procedure, parametros);
+
+            ResultTest result = new ResultTest();
+            result.NomeProcedure = procedure;
+            result.idProcedureTest = idProcedureTest;
+            result.Resultado = "OK";
+
+            resultTest.Add(result);
+        }
+        catch (ErroExecucaoException ex)
+        {
+            ResultTest result = new ResultTest();
+            result.NomeProcedure = procedure;
+            result.idProcedureTest = idProcedureTest;
+            result.Resultado = ex.ListaErro[0].Mensagem;
+            result.ErroMessage = ex.ListaErro[0].Mensagem;
+            resultTest.Add(result);
+
+            if (ex.ListaErro.Any(x => x.TipoMensagem == "F"))
+            {
+                ModelState.AddError("alert-warning", "Por favor, verifique o formulário");
+            }
+
+            foreach (dynamic item in ex.ListaErro)
+            {
+                if (item.TipoMensagem == "F")
+                {
+                    ModelState.AddError(item.NomeInput, item.Mensagem);
+                }
+                else if (item.TipoMensagem == "V")
+                {
+                    ModelState.AddError("alert-danger", item.Mensagem);
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            ModelState.AddError("alert-danger", ex.Message);
+            ResultTest result = new ResultTest();
+            result.NomeProcedure = procedure;
+            result.idProcedureTest = idProcedureTest;
+            result.Resultado = ex.Message;
+            result.ErroMessage = ex.Message;
+            resultTest.Add(result);
+        }
+    }
+
+    private void CalculaTeste(List<Procedure> ListaProcedures, List<ResultTest> result)
+    {
+        foreach (var item in ListaProcedures)
+        {
+            string resultado = resultTest?.Find(x => x.NomeProcedure == item.NomeProcedure && x.idProcedureTest == item.idProcedureTest)?.Resultado;
+
+            if (item.Expectativa == resultado)
+            {
+                contadorAprovado += 1;
+            }
+            else if (resultado == null)
+            {
+
+            }
+            else
+            {
+                contadorReprovado += 1;
+            }
+
+        }
+    }
+
+    private void SetView()
+    {
+        if (acao == null)
+        {
+            procedure ??= new Procedure();
+            view = View.Index;
+        }
+        else if ((acao == "Novo"))
+        {
+            procedure ??= new Procedure();
+            view = View.New;
+        }
+        else if ((acao == "Edit"))
+        {
+            procedure ??= new Procedure();
+            view = View.Edit;
+        }
+        else if (((acao == "modulo") || (acao == "pagina") || (acao == "acao")) && (procedure.idProcedureTest == null))
+        {
+            procedure ??= new Procedure();
+            view = View.New;
+        }
+        else if (((acao == "modulo") || (acao == "pagina") || (acao == "acao")) && (procedure.idProcedureTest != null))
+        {
+            procedure ??= new Procedure();
+            view = View.Edit;
+        }
+        else if (acao == "I" && deuCerto)
+        {
+            view = View.Index;
+        }
+        else if (acao == "A" && deuCerto)
+        {
+            view = View.Index;
+        }
+        else if (acao == "I" && !deuCerto)
+        {
+            view = View.New;
+        }
+        else if (acao == "A" && !deuCerto)
+        {
+            view = View.Edit;
+        }
+    }
+}
+
+@{
+    AlimentaVariaveis();
+
+    ConsultaSistema();
+
+    if (acao == "modulo")
+    {
+        ConsultaModulo();
+    }
+    if (acao == "pagina")
+    {
+        ConsultaModulo();
+        ConsultaPagina();
+    }
+    if (acao == "acao")
+    {
+        ConsultaModulo();
+        ConsultaPagina();
+        ConsultaAcao();
+    }
+
+    ConsultaCobertura();
+    ConsultarProcedures();
+
+    if (acao == "T")
+    {
+        if (ListaProcedures != null)
+        {
+            foreach (var item in ListaProcedures)
+            {
+                Manutencao(item.NomeProcedure, item.Parametros, item.idProcedureTest);
+            }
+        }
+    }
+
+    if (acao == "I")
+    {
+        procedure = new Procedure()
+        {
+            IdSistema = Util.ChecaNulo(Request.Form["idSistema"]),
+            IdModulo = Util.ChecaNulo(Request.Form["idModulo"]),
+            IdPagina = Util.ChecaNulo(Request.Form["idPagina"]),
+            IdAcao = Util.ChecaNulo(Request.Form["idAcao"]),
+            NomeProcedure = Util.ChecaNulo(Request.Form["nomeProcedure"]),
+            Descricao = Util.ChecaNulo(Request.Form["descricao"]),
+            Expectativa = Util.ChecaNulo(Request.Form["expectativa"]),
+            Parametros = Util.ChecaNulo(Request.Form["parametros"])
+        };
+
+        ManutencaoProcedure("stp_Sys_CoberturaTeste_Ins");
+        ConsultaCobertura();
+        ConsultarProcedures();
+    }
+
+    if (acao == "T_ID")
+    {
+        string resultado = ListaProcedures?.Find(x => x.idProcedureTest == idProcedureTestSelect)?.Parametros;
+        string nomeProcedure = ListaProcedures?.Find(x => x.idProcedureTest == idProcedureTestSelect)?.NomeProcedure;
+        Manutencao(nomeProcedure, resultado, idProcedureTestSelect);
+    }
+
+    if (acao == "Edit")
+    {
+        ConsultarProcedures();
+        if (!ListaProcedures.IsNullOrEmpty())
+        {
+            procedure = ListaProcedures.FirstOrDefault();
+        }
+
+        ConsultaSistema();
+        ConsultaModulo();
+        ConsultaPagina();
+        ConsultaAcao();
+    }
+
+    if (acao == "A")
+    {
+        ManutencaoProcedure("stp_Sys_CoberturaTeste_Upd");
+
+        ConsultaCobertura();
+        ConsultarProcedures();
+    }
+
+    SetView();
+}
+
+<form name="form1" id="form1" method="POST">
+    <input type="hidden" name="acao" id="acao">
+    <input type="hidden" name="idProcedureTest" id="idProcedureTest" value="@procedure.idProcedureTest">
+    <input type="hidden" name="idProcedureTestSelect" id="idProcedureTestSelect" value="@idProcedureTestSelect">
+
+    <div class="container-fluid">
+        <div class="header sticky-top">
+            <div class="header-body">
+                <div class="row align-items-center">
+                    <div class="col">
+                        @PageHelper.MakeCabecalhoPagina(listaBotao)
+                        <h1 class="header-title text-truncate pb-1">
+                            Projeto Consignado
+                        </h1>
+
+                    </div>
+                    <div class="col-auto">
+                        @PageHelper.MakeBotao(listaBotao, "Limpar")
+                        @{
+                            switch (view)
+                            {
+                                case View.Index:
+                                    <button type="button" onclick="adicionarNovo()" class="btn btn-primary">
+                                        <i class="fas fa-plus"></i> Nova Procedure
+                                    </button>
+                                    <button type="button" onclick="executaAcao('T')" class="btn btn-primary">
+                                        Executar Todos
+                                    </button>
+                                    break;
+                                case View.New:
+                                    <button type="button" onclick="executaAcao('I')" class="btn btn-primary">
+                                        Salvar
+                                    </button>
+                                    break;
+                                case View.Edit:
+                                    <button type="button" onclick="executaAcao('A')" class="btn btn-primary">
+                                        Alterar
+                                    </button>
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+            @if (view == View.New || view == View.Edit)
+            {
+                <div class="pt-2">
+                    @PageHelper.MakeAlert()
+                </div>
+            }
+            @if (view == View.Index)
+            {
+                <div class="mt-4 p-4 bg-secondary text-white rounded">
+                    <h1 class="display-4">Cobertura de Testes</h1>
+                    <p>@resultCoberturaTeste.ProceduresComTeste de @resultCoberturaTeste.TotalProcedure</p>
+                    @if (resultCoberturaTeste.ProceduresComTeste > 0 && resultCoberturaTeste.TotalProcedure > 0)
+                    {
+                        <p>Cobertura de @(((resultCoberturaTeste.ProceduresComTeste / resultCoberturaTeste.TotalProcedure) * 100).ToString("N2"))%</p>
+                    }
+                </div>
+            }
+        </div>
+
+        @if (view == View.Index)
+        {
+            if (ListaProcedures != null)
+            {
+                <div class="table-responsive-xl mt-3">
+                    <table class="table table-sm table-nowrap card-table">
+                        @if (resultTest != null)
+                        {
+                            CalculaTeste(ListaProcedures, resultTest);
+                            <thead>
+                                <tr>
+                                    <th colspan="10"><h4>Testes Aprovados: @contadorAprovado Reprovados: @contadorReprovado</h4></th>
+                                </tr>
+                            </thead>
+                        }
+                        <thead>
+                            <tr>
+                                <th>Sistema</th>
+                                <th>Modulo</th>
+                                <th>Pagina</th>
+                                <th>Ação</th>
+                                <th>Procedure</th>
+                                <th>Descrição Teste</th>
+                                <th>Expectativa</th>
+                                <th>Resultado</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody class="list">
+                            @foreach (var item in ListaProcedures)
+                            {
+                                string resultado = resultTest?.Find(x => x.NomeProcedure == item.NomeProcedure && x.idProcedureTest == item.idProcedureTest)?.Resultado;
+                                string cor = null;
+
+                                if ((item.Expectativa == resultado))
+                                {
+                                    cor = "alert-success";
+                                }
+                                else if (resultado == null)
+                                {
+
+                                }
+                                else
+                                {
+                                    cor = "alert-danger";
+                                }
+                                <tr class="@cor">
+                                    <td>@item.NomeSistema</td>
+                                    <td>@item.NomeModulo</td>
+                                    <td>@item.NomePagina</td>
+                                    <td>@item.NomeAcao</td>
+                                    <td>@item.NomeProcedure</td>
+                                    <td>@item.Descricao</td>
+                                    <td>@item.Expectativa</td>
+                                    <td>@resultado</td>
+                                    <td>
+                                        <button type="button" onclick="edit('@item.idProcedureTest')" class="btn btn-primary">
+                                            Editar
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button type="button" onclick="testeIndividual('@item.idProcedureTest')" class="btn btn-primary">
+                                            Executar Teste
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                resultado = null;
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            }
+
+        }
+        @if (view == View.New || view == View.Edit)
+        {
+            <div class="form-group form-row">
+                <div class="col-lg-3">
+                    <label for="idSistema">Sistema</label>
+                    <select name="idSistema" id="idSistema" class="form-control @IsInvalid("idSistema")" onchange="consultaSelect('modulo')">
+                        <option value=""></option>
+                        @if (listaSistema != null)
+                        {
+                            foreach (var item in listaSistema)
+                            {
+                                <option value="@item.idSistema" @(procedure.IdSistema == item.idSistema ? "selected" : "")>
+                                    @item.NomeSistema
+                                </option>
+                            }
+                        }
+                    </select>
+                    @PageHelper.MakeFeedback("idSistema")
+                </div>
+                <div class="col-lg-4">
+                    <label for="idModulo">Modulo</label>
+                    <select name="idModulo" id="idModulo" class="form-control @IsInvalid("idModulo")" onchange="consultaSelect('pagina')">
+                        <option value=""></option>
+                        @if (listaModulo != null)
+                        {
+                            foreach (var item in listaModulo)
+                            {
+                                <option value="@item.idModulo" @(procedure.IdModulo == item.idModulo ? "selected" : "")>
+                                    @item.NomeModulo
+                                </option>
+                            }
+                        }
+                    </select>
+                    @PageHelper.MakeFeedback("idModulo")
+                </div>
+                <div class="col-lg-4">
+                    <label for="idPagina">Pagina</label>
+                    <select name="idPagina" id="idPagina" class="form-control @IsInvalid("idPagina")" onchange="consultaSelect('acao')">
+                        <option value=""></option>
+                        @if (listaPagina != null)
+                        {
+                            foreach (var item in listaPagina)
+                            {
+                                <option value="@item.idPagina" @(procedure.IdPagina == item.idPagina ? "selected" : "")>
+                                    @item.NomePagina
+                                </option>
+                            }
+                        }
+                    </select>
+                    @PageHelper.MakeFeedback("idPagina")
+                </div>
+                <div class="col-lg-1">
+                    <label for="idAcao">Acao</label>
+                    <select name="idAcao" id="idAcao" class="form-control @IsInvalid("idAcao")">
+                        <option value=""></option>
+                        @if (listaAcao != null)
+                        {
+                            foreach (var item in listaAcao)
+                            {
+                                <option value="@item.idAcao" @(procedure.IdAcao == item.idAcao ? "selected" : "")>
+                                    @item.CodigoAcao - @item.NomeAcao
+                                </option>
+                            }
+                        }
+                    </select>
+                    @PageHelper.MakeFeedback("idAcao")
+                </div>
+            </div>
+
+            <div class="form-group form-row">
+                <div class="col-lg-4">
+                    <label for="nomeProcedure">Nome Procedure</label>
+                    <input type="text" id="nomeProcedure" name="nomeProcedure" value="@procedure.NomeProcedure" class="form-control @IsInvalid("nomeProcedure")" size="50" maxlength="250">
+                    @PageHelper.MakeFeedback("nomeProcedure")
+                </div>
+                <div class="col-lg-8">
+                    <label for="expectativa">Expectativa</label>
+                    <input type="text" id="expectativa" name="expectativa" value="@procedure.Expectativa" class="form-control @IsInvalid("expectativa")" size="50" maxlength="250">
+                    @PageHelper.MakeFeedback("expectativa")
+                </div>
+            </div>
+            <div class="form-group form-row">
+                <div class="col-lg-12">
+                    <label for="descricao">Descrição do Teste</label>
+                    <input type="text" id="descricao" name="descricao" value="@procedure.Descricao" class="form-control @IsInvalid("descricao")" size="50" maxlength="250">
+                    @PageHelper.MakeFeedback("descricao")
+                </div>
+            </div>
+
+            <div class="form-group form-row">
+                <div class="col-lg-12">
+                    <label for="parametros">Parametros Json</label>
+                    <textarea id="parametros" name="parametros" rows="12" cols="50" class="form-control @IsInvalid("parametros")">@procedure.Parametros</textarea>
+                    @PageHelper.MakeFeedback("parametros")
+                </div>
+            </div>
+        }
+
+    </div>
+</form>
+<script>
+    function adicionarNovo() {
+        document.form1.acao.value = "Novo";
+        document.form1.submit();
+    }
+
+    function consultaSelect(value) {
+        document.form1.acao.value = value;
+        document.form1.submit();
+    }
+
+    function edit(id) {
+        document.form1.acao.value = "Edit";
+        document.form1.idProcedureTest.value = id;
+        document.form1.submit();
+    }
+
+    function testeIndividual(id) {
+        document.form1.acao.value = "T_ID";
+        document.form1.idProcedureTestSelect.value = id;
+        document.form1.submit();
+    }
+</script>

@@ -1,0 +1,376 @@
+﻿@using AppCode;
+
+@helper MakeAlert()
+{
+    foreach (var item in ModelState.Where(x => x.Key.StartsWith("alert-")))
+    {
+        foreach (var item1 in item.Value.Errors)
+        {
+            <div class="alert @Html.Raw(item.Key) alert-dismissible show" role="alert">
+                @Html.Raw(item1)
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+        }
+    }
+}
+
+@helper MakeFeedback(string key, string options = "invalid-feedback")
+{
+    foreach (var item in ModelState.Where(x => x.Key.Equals(key, StringComparison.OrdinalIgnoreCase)))
+    {
+        foreach (var item1 in item.Value.Errors)
+        {
+            <div class="@options">
+                @Html.Raw(item1)
+            </div>
+        }
+    }
+}
+
+@helper Cabecalho(string titulo, string id, string user)
+{
+    <div class="card-header" @if (!string.IsNullOrEmpty(id)) { @("onclick=$('#" + id + "').toggle(); style=cursor:pointer;") }>
+        <div class="row">
+            @if (!string.IsNullOrEmpty(titulo))
+            {
+                <div class="col">
+                    @Html.Raw(titulo)
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(user))
+            {
+                <div class="col-auto">
+                    @user
+                </div>
+            }
+        </div>
+    </div>
+}
+
+@helper MakeCabecalhoPagina(IEnumerable<Botao> botoes)
+{
+    Botao botao = botoes?.FirstOrDefault();
+
+    if (botao != null)
+    {
+        <div class="header-pretitle">@botao.CaptionSistema / @botao.CaptionModulo / @botao.CaptionPagina</div>
+    }
+}
+
+@helper MakeCabecalhoPagina(string captionSistema, string captionModulo, string captionPagina)
+{
+    <h6 class="header-pretitle">@captionSistema / @captionModulo / @captionPagina</h6>
+}
+
+@helper MakeBotao(IEnumerable<Botao> botoes, string codigo, string options = "btn-primary")
+{
+    if (codigo == "Limpar")
+    {
+        <button type="button" onclick="estadoInicial()" class="btn" id="btn_Limpar">
+            Limpar
+        </button>
+    }
+
+    else if (codigo == "Imprimir")
+    {
+        <button type="button" onclick="window.print()" class="btn btn-primary" id="btn_Imprimir">
+            Imprimir
+        </button>
+    }
+    else if (codigo == "Voltar")
+    {
+        <button type="button" onClick="window.history.back()" class="btn btn-primary" id="btn_Voltar">
+            Voltar
+        </button>
+    }
+    else if (codigo == "ExportarExcel")
+    {
+        <button type="button" onClick="exportarExcel('@options')" class="btn btn-primary" id="btn_Exportar">
+            Exportar
+        </button>
+    }
+
+    else
+    {
+        Botao botao = botoes.FirstOrDefault(x => x.CodigoAcao == codigo);
+
+        if (botao != null)
+        {
+            if (String.IsNullOrEmpty(botao.Mensagem))
+            {
+                <button type="button" onclick="executaAcao('@botao.CodigoAcao')" class="btn @options" id="@("btn_"+botao.CodigoAcao)">
+                    @botao.CaptionAcao
+                </button>
+            }
+            else
+            {
+                <button type="button" class="btn @options" data-toggle="modal" data-target="@("#modal-" + codigo)" id="@("modal_btn_"+botao.CodigoAcao)">
+                    @botao.CaptionAcao
+                </button>
+
+                <div class="modal fade" id="@("modal-" + codigo)" tabindex="-1" role="dialog" aria-labelledby="@("modal-label-" + codigo)" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="@("modal-label-" + codigo)">@Page.Title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                @botao.Mensagem
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn" data-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-primary" onclick="executaAcao('@botao.CodigoAcao')" id="@("btn_"+botao.CodigoAcao)">Confirmar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    }
+}
+
+@helper MakeCheck(string _type, string _key, string _value, string _descricao, string _default)
+{
+    <div class="form-check">
+        <input type="@Html.Raw(_type)"
+               name="@Html.Raw(_key)"
+               id="@Html.Raw(_key + _value)"
+               value="@Html.Raw(_value)"
+               class="form-check-input @if (!ModelState.IsValidField(_key)) {<text>error-state</text>}"
+               @if (_default == _value) { <text> checked </text> } />
+        <label for="@Html.Raw(_key + _value)" class="form-check-label">@Html.Raw(_descricao)</label>
+    </div>
+}
+
+@helper MakeSearch(string nomeSistema, string nomeTabela, string consultaComposta, string consultaComposta2, string title, string group, string consultaDinamica = null, string consultaDinamica2 = null, string callbackfn = null)
+{
+    <div class="search">
+        <span class="btn btn-light"
+              data-toggle="popover"
+              data-container="body"
+              data-placement="bottom"
+              data-title="@title <a href='#' class='close' data-dismiss='alert' onclick='FecharJanela(this)'>&times;</a>"
+              data-content=""
+              id="popoverMenuButton">
+            ...
+        </span>
+        <div aria-labelledby="popoverMenuButton" style="display:none;">
+            <div data-nome-sistema="@nomeSistema"
+                 data-nome-tabela="@nomeTabela"
+                 data-consulta-composta="@consultaComposta"
+                 data-consulta-composta2="@consultaComposta2"
+                 data-consulta-dinamica="@consultaDinamica"
+                 data-consulta-dinamica2="@consultaDinamica2"
+                 data-search-group="@group"
+                 data-callback="@callbackfn">
+                <div class="input-group form-group form-row">
+                    <div class="col">
+                        <input type="text" name="descricao" id="descricao" value="" size="40" maxLength="40" class="form-control maiusculo" aria-labelledby="popoverDescricao">
+                    </div>
+                    <div class="col-auto">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-primary" type="button" name="pesquisar" id="pesquisar" onclick="searchPopover(this)">Pesquisar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group form-group form-row">
+                    <div class="col-auto">
+                        <input type="checkbox" name="qualquerParte" id="qualquerParte">
+                        <label for="qualquerParte">Em toda expressão</label>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <table class="table table-striped table-sm table-bordered table-hover" id="resultadoTresPontos"></table>
+            </div>
+        </div>
+    </div>
+}
+
+@helper CabecalhoRelatorio(string titulo)
+{
+    <text>
+        <div class="cabecalho">
+            <div class="topo">
+                <div class="logo"><img src="/imagens/brasao_rel.png" width="90" /></div>
+                <div class="corpo">
+                    <div class="estado">GOVERNO DO ESTADO DO MARANHÃO</div>
+                    <div class="departamento">DEPARTAMENTO ESTADUAL DE TRÂNSITO</div>
+                    <div class="endereco">Av. dos Franceses, s/n, Vila Palmeira<br>CEP: 65036-901 - São Luís/MA</div>
+                </div>
+                <div class="hora-emissao">Gerado em<br />@DateTime.Now</div>
+            </div>
+            @if (titulo != "")
+            {
+                <div class="titulo" id="TituloRelatorio"><b>@titulo</b></div>
+            }
+        </div>
+    </text>
+}
+
+@helper CabecalhoCertidao(string titulo)
+{
+    <text>
+        <div class="cabecalho">
+            <div>
+                <div class="corpo">
+                    <div align="center" style="margin-bottom:10px;"><img src="/imagens/brasao_rel.png" width="100" /></div>
+                    <div class="estado" align="center"><b>ESTADO DO MARANHÃO</b></div>
+                    <div class="estado" align="center"><b>SECRETARIA DE SEGURANÇA PÚBLICA</b></div>
+                    <div class="departamento" align="center"><b>DEPARTAMENTO ESTADUAL DE TRÂNSITO</b></div>
+                    <div class="departamento" align="center">DIRETORIA OPERACIONAL</div>
+                    <div class="endereco" align="center" style="margin-bottom:20px;">AVENIDA DOS FRANCESES, S/N, VILA PALMEIRA.<br>CEP: 65036-901 - SÃO LUÍS/MA</div>
+                </div>
+            </div>
+            @if (titulo != "")
+            {
+                <div class="titulo" id="TituloRelatorio"><b>@titulo</b></div>
+            }
+        </div>
+    </text>
+}
+
+@helper RodapeRelatorio(string mensagem = "")
+{
+    <text>
+        <div class="rodape">
+            @if (mensagem != "")
+            {
+                <div class="text-center" id="MensagemRodape">@mensagem</div>
+            }
+            <div class="">
+                <div class="hora-emissao left">Gerado em<br />@DateTime.Now</div>
+                <div class="endereco right">Av. dos Franceses, s/n, Vila Palmeira<br>CEP: 65036-901 - São Luís/MA</div>
+            </div>
+        </div>
+    </text>
+}
+
+@helper CabecalhoRelatorioLeilao(string idRegiao, string titulo)
+{
+    <div class="cabecalho" style="display:grid">
+        <div class="topo">
+            <div class="logo" style="margin-top: 0;"><img src="/imagens/brasao_rel.png" /></div>
+            <div class="corpo text-center" style="margin-top: 0;">
+                <div class="estado">GOVERNO DO ESTADO DE RONDÔNIA</div>
+                <div class="departamento">DEPARTAMENTO ESTADUAL DE TRÂNSITO</div>
+                @if (idRegiao == "1")
+                {
+                    <div class="endereco">
+                        Av. Mamoré, 3333 – Três Marias<br>
+                        CEP: 76829-863 - Porto Velho/RO. Telefone: (69) 3226-6233 / 3214-7428
+                    </div>
+                }
+                else if (idRegiao == "2")
+                {
+                    <div class="endereco">
+                        Av. Aracaju, 730 – Nova Brasília<br>
+                        CEP: 76908-323 - Ji-Paraná/RO. Telefone: (69) 3217-2576/2577
+                    </div>
+                }
+                else if (idRegiao == "3")
+                {
+                    <div class="endereco">
+                        Rua Ji-Paraná, 2101 – Jardim Clodoaldo<br>
+                        CEP: 76963-626 - Cacoal/RO.
+                    </div>
+                }
+                else if (idRegiao == "4")
+                {
+                    <div class="endereco">
+                        Av. Trancredo Neves, 5500 – Jardim Paraná<br>
+                        CEP: 76871-453 - Ariquemes/RO.
+                    </div>
+                }
+            </div>
+            <div class="hora-emissao">Gerado em<br />@DateTime.Now</div>
+        </div>
+        @if (titulo != null)
+        {
+            <div class="titulo" id="TituloRelatorio" style="margin-top: 0;">@titulo</div>
+        }
+    </div>
+}
+
+@helper MakeRegua(string Mensagem)
+{
+    string reguacentena = "";
+    string reguadezena = "";
+    string reguaunidade = "";
+    string caracter = "";
+    int contador = 0;
+    int contadorcentena = 0;
+    int contadordezena = 0;
+    int contadorunidade = 0;
+
+    // Regua Centena
+    contador = 1;
+    contadorcentena = 0;
+    while (contador <= Mensagem.Length)
+    {
+        reguacentena = reguacentena + caracter;
+
+        if ((contador % 100) == 0)
+        {
+            contadorcentena = (contadorcentena + 1) % 10;
+            caracter = (contadorcentena % 10).ToString();
+        }
+        else
+        {
+            caracter = "&nbsp;";
+        }
+        contador = contador + 1;
+    }
+
+    //Regua Dezena
+    contador = 1;
+    contadordezena = 0;
+    while (contador <= Mensagem.Length)
+    {
+        reguadezena = reguadezena + caracter;
+
+        contador = contador + 1;
+
+        if ((contador % 10) == 0)
+        {
+            contadordezena = (contadordezena + 1) % 10;
+            caracter = (contadordezena % 10).ToString();
+        }
+        else
+        {
+            caracter = "&nbsp;";
+        }
+    }
+
+    //Regua Unidade
+    contador = 1;
+    contadorunidade = 1;
+    while (contador <= Mensagem.Length)
+    {
+        reguaunidade = reguaunidade + contadorunidade.ToString();
+
+        contadorunidade = (contadorunidade + 1) % 10;
+
+        contador = contador + 1;
+    }
+    <div class="text-monospace text-danger">
+        @Html.Raw(reguacentena)<br>
+        @Html.Raw(reguadezena)<br>
+        @Html.Raw(reguaunidade)<br>
+    </div>
+}
+
+@helper MakeIcon(bool condition)
+{
+    if (condition)
+    {
+        <i class="fa fa-check text-success"></i>}
+    else
+    {
+        <i class="fa fa-times text-danger"></i>}
+}

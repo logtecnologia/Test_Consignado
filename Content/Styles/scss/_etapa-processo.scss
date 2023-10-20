@@ -1,0 +1,84 @@
+.etapa-processo {
+    padding: 0.375rem;
+    width: 6em;
+
+    &.davez {
+        background-color: #febf01;
+    }
+    
+    &.concluida {
+        background-color: #81bc3b;
+    }
+    
+    &.indisponivel {
+        background-color: #BEC3C9;
+    }
+    
+    &.cancelada {
+        background-color: #e62117;
+    }
+
+    &.ativa::before {
+        content: "";
+        display: block;
+        width: 100%;
+        border: solid 3px #0072c6;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
+}
+
+.etapa-processo .etapa-processo-icone {
+    font-size: 1.75em;
+    color: white;
+}
+
+.etapa-processo .etapa-processo-texto {
+    color: white;
+    font-size: 0.875em;
+    line-height: 1em;
+    font-weight: 400;
+}
+
+.etapa-processo.ativa .etapa-processo-texto {
+    margin-bottom: 3px;
+}
+
+.etapa-processo-content {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    text-align: left;
+    height: 50px;
+}
+
+.icone-etapa-processo {
+    background: url("../img/icones-etapa-processo.png");
+    width: 24px;
+    height: 24px;
+
+    &-veiculo {
+        background-position: 0 0;
+    }
+
+    &-consulta-aptidao {
+        background-position: -24px 0;
+    }
+
+    &-solicita-entrada {
+        background-position: -48px 0;
+    }
+
+    &-nota-fiscal {
+        background-position: -72px 0;
+    }
+
+    &-CRV-e {
+        background-position: -96px 0;
+    }
+
+    &-saida {
+        background-position: -120px 0;
+    }
+}

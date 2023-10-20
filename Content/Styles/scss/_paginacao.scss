@@ -1,0 +1,32 @@
+.paginacao {
+    width: 100%;
+    background: #B7CFE9;
+}
+
+    .paginacao td {
+        text-align: center;
+    }
+
+    .paginacao a {
+        color: #000;
+    }
+
+    .paginacao .primeira {
+        background: url("../img/primeira.png") left 2px no-repeat;
+        padding-left: 15px;
+    }
+
+    .paginacao .anterior {
+        background: url("../img/anterior.png") left 2px no-repeat;
+        padding-left: 15px;
+    }
+
+    .paginacao .proxima {
+        background: url("../img/proxima.png") right 2px no-repeat;
+        padding-right: 15px;
+    }
+
+    .paginacao .ultima {
+        background: url("../img/ultima.png") right 2px no-repeat;
+        padding-right: 15px;
+    }

@@ -1,0 +1,158 @@
+.metro-layout .content .items {
+    position: relative;
+    overflow: hidden;
+}
+
+.horizontal .content .items {
+    height: 100%;
+}
+
+.metro-layout .items .col {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 20px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.items .col1 {
+    max-width: 110px;
+}
+
+.items .col2 {
+    max-width: 248px;
+}
+
+.items .col3 {
+    max-width: 372px;
+}
+
+.items .col4 {
+    max-width: 496px;
+}
+
+.metro-layout .box {
+    float: left;
+    position: relative;
+    text-decoration: none;
+    cursor: pointer;
+    z-index: 1;
+    margin: 2px;
+    text-align: center;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: .2rem;
+    /*box-shadow: 0 0.75rem 1.5rem rgba(0,57,79,.03);*/
+}
+
+.metro-layout .icon {
+    background: url("../img/icones-tela-inicial.png");
+    display: inline-block;
+    margin: 16px auto;
+}
+
+.metro-layout .pequeno .icon {
+    font-size: 18px;
+}
+
+.metro-layout .medio .icon {
+    font-size: 34px;
+}
+
+.metro-layout .largo .icon, .metro-layout .grande .icon {
+    font-size: 34px;
+}
+
+.items .caption {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    text-align: left;
+}
+
+.items .caption-modulo {
+    font-size: 9px;
+    line-height: 8px;
+    font-weight: 500;
+}
+
+.items .caption-pagina {
+    font-weight: bold;
+}
+
+.items .caption-noticia {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    text-align: left;
+    padding: 10px;
+    width: 100%;
+}
+
+.items .borda-interna {
+    border: solid 3px;
+    padding: 3px;
+}
+
+    .items .borda-interna .caption {
+        left: 3px;
+        bottom: 3px;
+    }
+
+.items2 {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 21px;
+}
+
+    .items2 a {
+        display: block;
+        margin: 0;
+        padding: 3px;
+        float: left;
+        width: 20%;
+    }
+
+        .items2 a img {
+            padding: 5px;
+            margin-right: 8px;
+            float: left;
+        }
+
+.metro-layout .pequeno {
+    width: 48px;
+    height: 48px;
+}
+
+.metro-layout .medio {
+    width: 120px;
+    height: 110px;
+}
+
+.metro-layout .largo {
+    width: 244px;
+    height: 110px;
+}
+
+.metro-layout .grande {
+    width: 244px;
+    height: 224px;
+}
+
+.metro-layout .pequeno .caption-modulo, .metro-layout .pequeno .caption-pagina {
+    display: none;
+}
+
+.column {
+    float: left;
+}
+
+.metro-layout .pequeno .caption-modulo,
+.metro-layout .pequeno .caption-pagina {
+    display: none;
+}
+
+    .metro-layout .content .items {
+        position: relative;
+        overflow: hidden;
+    }

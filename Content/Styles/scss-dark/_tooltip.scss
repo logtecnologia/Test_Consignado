@@ -1,0 +1,31 @@
+.tooltip.bottom {
+    top: 100%;
+}
+
+.tooltip.top {
+    bottom: 100%;
+}
+
+.tooltip.left {
+    right: 100%;
+}
+
+.tooltip.right {
+    left: 100%;
+}
+
+.tooltip.msgErro {
+    background: #900;
+}
+
+.tooltip.msgOk {
+    background: #8fbf46;
+}
+
+.tooltip.msgGuia {
+    background: #3c7fb1;
+}
+
+.tooltip.msgAlert {
+    background: #F08214;
+}

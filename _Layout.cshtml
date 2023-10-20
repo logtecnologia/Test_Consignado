@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <title>@Page.Title</title>
+    <meta charset="utf-8">
+    <meta name="referrer" content="origin-when-crossorigin" id="meta_referrer">
+    <meta property="og:site_name" content="consignado">
+    <meta property="og:url" content="https://www.consignado.ma.gov.br">
+    <meta property="og:image" content="https://www.consignado.ma.gov.br/consignado_icon_325x325.png">
+    <meta property="og:locale" content="pt_BR">
+    <link rel="search" type="application/opensearchdescription+xml" href="/osd.xml" title="consignado">
+    <link id="favicon" rel="shortcut icon" href="~/favicon.ico" type="image/png" />
+    <link rel="canonical" href="https://www.consignado.ma.gov.br/">
+    <link rel="alternate" media="only screen and (max-width: 640px)" href="https://www.consignado.ma.gov.br/">
+    <link rel="alternate" media="handheld" href="https://www.consignado.ma.gov.br/">
+    <link rel="alternate" hreflang="x-default" href="https://www.consignado.ma.gov.br/">
+    <link rel="alternate" hreflang="pt" href="https://www.consignado.ma.gov.br/">
+    <meta name="description" content="Portal de serviços do Detran">
+    <meta name="robots" content="noodp,noydir">
+
+    @RenderSection("head", required: false)
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/fontawesome-free-5.15.3-web/css/all.min.css" rel="stylesheet">
+    <link href="@(Convert.ToString(Session["tema"]).Equals("temaEscuro") ? "/Content/app-dark-mode.min.css" : "/Content/app.min.css")" rel="stylesheet" id="modo-cores" class="modo-cores" />
+</head>
+
+<body class="@(Convert.ToString(Session["tamanhoFonte"]).Equals("padrao") ? "" : "body-"+Convert.ToString(Session["tamanhoFonte"]))">
+    @RenderBody()
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QQGMMT4KRR"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-QQGMMT4KRR');
+    </script>
+
+    <!-- Jquery Core -->
+    <script src="~/Scripts/jquery-3.6.0.min.js" type="text/javascript"></script>
+
+    <!-- JQuery Mask-->
+    <script src="~/Scripts/jquery.mask.min.js"></script>
+
+    <!-- JQuery Validate-->
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+
+    <!-- Bootstrap bundle Javasript -->
+    <script src="~/Scripts/bootstrap.bundle.min.js" type="text/javascript"></script>
+
+    <!-- Javascript personalizado -->
+    <script src="~/Scripts/app.js" type="text/javascript"></script>
+
+    @RenderSection("script", required: false)
+</body>
+</html>

@@ -1,0 +1,24 @@
+.colorpicker {
+    padding: 2px;
+    background-color: #FFFFFF;
+    box-shadow: rgba(60, 64, 67, .3) 0 1px 2px 0, rgba(60, 64, 67, .15) 0 1px 3px 1px;
+    border: solid 1px #c6c6c6;
+}
+
+    .colorpicker .color-group {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .colorpicker .color {
+        width: 15px;
+        height: 15px;
+        border: solid 1px rgba(0,0,0,0.05);
+        cursor: pointer;
+    }
+
+        .colorpicker .color:hover {
+            border: 1px solid #F29436;
+            box-shadow: #FFE294 0 0 0px 1px inset;
+            transition: border ease 0.1s, box-shadow ease .1s;
+        }

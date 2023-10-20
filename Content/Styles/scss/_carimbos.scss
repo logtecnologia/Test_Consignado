@@ -1,0 +1,140 @@
+.carimbo {
+	display: inline-block;
+	height: 25px;
+	background: url(../Imagens/carimbos.png) no-repeat;
+	margin-left: 5px;
+}
+.carimbo.ren-impedimento {
+	background-position: 0 0;
+	width: 124px;
+}
+.carimbo.rev-transferido-outrauf {
+	background-position: 0 -25px;
+	width: 94px;
+}
+.carimbo.rev-outrauf {
+	background-position: 0 -25px;
+	width: 94px;
+}
+.carimbo.ren-permissionario {
+	background-position: 0 -50px;
+	width: 152px;
+}
+.carimbo.ren-pontuacao {
+	background-position: 0 -75px;
+	width: 114px;
+}
+.carimbo.ren-vencida {
+	background-position: 0 -100px;
+	width: 85px;
+}
+.carimbo.rev-furto-roubo {
+	background-position: 0 -125px;
+	width: 128px;
+}
+.carimbo.rev-baixado {
+	background-position: 0 -150px;
+	width: 84px;
+}
+.carimbo.rev-comunicacao-venda {
+	background-position: 0 -175px;
+	width: 192px;
+}
+.carimbo.rev-restricao {
+	background-position: 0 -200px;
+	width: 103px;
+}
+.carimbo.rev-resolucao291 {
+	background-position: 0 -225px;
+	width: 167px;
+}
+.carimbo.rev-suspenso {
+	background-position: 0 -250px;
+	width: 102px;
+}
+.carimbo.rev-averbacao {
+	background-position: 0 -275px;
+	width: 114px;
+}
+.carimbo.rev-arrolamento {
+	background-position: 0 -300px;
+	width: 137px;
+}
+.carimbo.rev-removido {
+	background-position: 0 -325px;
+	width: 96px;
+}
+.carimbo.rev-judicial {
+	background-position: 0 -350px;
+	width: 85px;
+}
+.carimbo.rev-primeiroemplacamento {
+	background-position: 0 -375px;
+	width: 168px;
+}
+.carimbo.rev-liberado-oficina {
+	background-position: 0 -400px;
+	width: 162px;
+}
+.carimbo.rev-transferindo-UFLocal {
+	background-position: 0 -425px;
+	width: 183px;
+}
+.carimbo.rev-renajud {
+	background-position: 0 -450px;
+	width: 88px;
+}
+.carimbo.rev-leilao {
+	background-position: 0 -475px;
+	width: 70px;
+}
+.carimbo.rev-posse-judicial {
+	background-position: 0 -500px;
+	width: 146px;
+}
+.carimbo.rev-liberacao-provisoria {
+	background-position: 0 -525px;
+	width: 169px;
+}
+.carimbo.rev-baixa-judicial {
+	background-position: 0 -550px;
+	width: 141px;
+}
+.carimbo.rev-febranor {
+	background-position: 0 -575px;
+	width: 104px;
+}
+.carimbo.rev-relacionado-leilao {
+	background-position: 0 -600px;
+	width: 153px;
+}
+
+.carimbo.rev-recall {
+	background-position: 0 -625px;
+	width: 75px;
+}
+
+.carimbo.rev-inativo {
+	background-position: 0 -650px;
+	width: 81px;
+}
+
+.carimbo.rev-frota-desativada {
+	background-position: 0 -675px;
+	width: 176px;
+}
+
+.carimbo.rev-intencao-venda {
+	background-position: 0 -700px;
+	width: 182px;
+}
+
+.carimbo.rev-moto-legal {
+	background-position: 0 -725px;
+	width: 116px;
+}
+
+.carimbo.rev-processo-vencido {
+	background-position: 0 -750px;
+	width: 176px;
+}

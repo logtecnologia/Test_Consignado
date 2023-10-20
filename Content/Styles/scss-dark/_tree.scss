@@ -1,0 +1,71 @@
+ul.tree, ul.tree ul, ul.tree li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+    ul.tree ul {
+        display: none;
+    }
+
+    ul.tree ul.show {
+        display: block;
+    }
+
+    ul.tree li {
+        padding: 0 0 0 25px;
+    }
+
+.tree .titulo {
+    font-weight: bold;
+}
+
+.tree span {
+    text-decoration: none;
+    text-transform: uppercase;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 1px;
+}
+
+.tree .titulo {
+    font-weight: bold;
+}
+
+.n1, .n2, .n3, .n4 {
+    padding: 10px;
+    display: block;
+    color: #FFF;
+}
+
+.n1 {
+    background: #159CFF;
+}
+
+.n2 {
+    background: #0486E6;
+}
+
+.n3 {
+    background: #036DBC;
+}
+
+.n4 {
+    background: #035592;
+}
+
+.n1:hover {
+    background: #0486E6;
+}
+
+.n2:hover {
+    background: #036DBC;
+}
+
+.n3:hover {
+    background: #035592;
+}
+
+.n4:hover {
+    background: #023F6B;
+}

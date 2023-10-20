@@ -1,0 +1,1731 @@
+﻿.mai-mega-dropdown {
+    position: static
+}
+
+.mai-mega-menu.dropdown-menu {
+    padding: 15px 0 25px;
+    margin-top: 0;
+    width: 100%;
+    border-width: 0;
+    -webkit-box-shadow: 0 3px .3077rem rgba(0,0,0,.1);
+    box-shadow: 0 3px .3077rem rgba(0,0,0,.1);
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    z-index: 999
+}
+
+@media (max-width: 767.98px) {
+    .mai-nav-tabs-sub .mai-mega-menu.dropdown-menu {
+        padding: 0;
+        background-color: #424242
+    }
+}
+
+.mai-mega-menu-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -20px;
+    margin-left: -20px
+}
+
+@media (max-width: 767.98px) {
+    .mai-mega-menu-row {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        margin: 0;
+        padding: 0
+    }
+}
+
+.mai-mega-menu-column {
+    position: relative;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 20px;
+    padding-left: 20px;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+    border-right: 1px solid #f2f2f2
+}
+
+@media (max-width: 767.98px) {
+    .mai-mega-menu-column {
+        max-width: 100%;
+        border-right-width: 0;
+        padding: 0
+    }
+}
+
+.mai-mega-menu-column:first-child {
+    padding-left: 40px
+}
+
+@media (max-width: 767.98px) {
+    .mai-mega-menu-column:first-child {
+        padding: 0
+    }
+}
+
+.mai-mega-menu-column:last-child {
+    border-right-width: 0
+}
+
+.mai-mega-menu-section {
+    margin: 0 0 15px
+}
+
+@media (max-width: 767.98px) {
+    .mai-mega-menu-section {
+        margin: 0
+    }
+
+    .mai-mega-menu-section.parent > .nav-link {
+        color: #a1a1a1
+    }
+
+    .mai-mega-menu-section.parent > .nav-link:after {
+        position: absolute;
+        content: "?";
+        font-family: "Stroke 7";
+        font-size: 1.9rem;
+        vertical-align: middle;
+        top: 0;
+        right: 15px
+    }
+
+    .mai-mega-menu-section.open > .nav-link {
+        color: #a07ed2
+    }
+
+    .mai-mega-menu-section.open > .nav-link:after {
+        content: "?"
+    }
+}
+
+.mai-mega-menu-section > .nav-link {
+    color: #2c7be5;
+    font-size: 1.231rem;
+    font-weight: 400
+}
+
+.navbar .navbar-nav .mai-mega-menu-section > .nav-link {
+    padding: 10px 0 6px
+}
+
+@media (max-width: 767.98px) {
+    .navbar .navbar-nav .mai-mega-menu-section > .nav-link {
+        padding: 0 17px 0 56px
+    }
+}
+
+@media (max-width: 767.98px) {
+    .mai-mega-menu-section > .nav-link {
+        position: relative;
+        font-size: 1rem;
+        line-height: 50.4px;
+        color: #a1a1a1
+    }
+}
+
+.mai-mega-menu-section > .nav-link .icon {
+    font-size: 1.385rem;
+    line-height: 1.1;
+    vertical-align: middle;
+    margin-right: 6px
+}
+
+@media (max-width: 767.98px) {
+    .mai-mega-menu-sub-items {
+        display: none;
+        padding: .6rem 0
+    }
+
+    .mai-mega-menu-section.open .mai-mega-menu-sub-items {
+        display: block
+    }
+}
+
+.mai-mega-menu-sub-items .dropdown-item {
+    font-size: 1.077rem;
+    color: #616161
+}
+
+.navbar .navbar-nav .mai-mega-menu-sub-items .dropdown-item {
+    padding: 8px 23px
+}
+
+.navbar .navbar-nav .mai-mega-menu-sub-items .dropdown-item.active, .navbar .navbar-nav .mai-mega-menu-sub-items .dropdown-item:hover {
+    background-color: transparent;
+    color: #2c7be5
+}
+
+.navbar .navbar-nav .mai-mega-menu-sub-items .dropdown-item:focus {
+    background-color: transparent
+}
+
+@media (max-width: 767.98px) {
+    .mai-nav-tabs-sub .dropdown-menu .mai-mega-menu-sub-items .dropdown-item {
+        padding: .7rem 1.5rem .7rem 78px;
+        font-size: 1rem
+    }
+}
+
+.mai-sub-header {
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    background-color: #2c7be5;
+    padding: 0 0 70px
+}
+
+@media (max-width: 767.98px) {
+    .mai-sub-header {
+        padding-bottom: 0;
+        background-color: #3f3f3f
+    }
+}
+
+.mai-sub-header:before {
+    position: absolute;
+    content: '';
+    display: block;
+    background-color: #fff;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 70px;
+    z-index: 1
+}
+
+@media (max-width: 767.98px) {
+    .mai-sub-header:before {
+        display: none
+    }
+}
+
+.mai-sub-header > .container {
+    padding: 0;
+    padding-top: 42px;
+    position: relative
+}
+
+@media (max-width: 767.98px) {
+    .mai-sub-header > .container {
+        padding: 0
+    }
+}
+
+.mai-sub-header .navbar {
+    padding: 0;
+    width: 100%
+}
+
+.mai-sub-header .navbar-toggler {
+    padding: 14px 0;
+    height: auto;
+    width: 100%;
+    background-color: #8f6bc4
+}
+
+.mai-sub-header .navbar-toggler:focus {
+    outline: 0
+}
+
+.mai-sub-header .navbar-toggler.collapsed {
+    background-color: #353535
+}
+
+.mai-sub-header .navbar-toggler.collapsed .icon-bar span {
+    background-color: #d8d8d8
+}
+
+.mai-sub-header .navbar-toggler .icon-bar {
+    display: inline-block;
+    background-color: transparent;
+    height: auto;
+    width: auto;
+    vertical-align: middle
+}
+
+.mai-sub-header .navbar-toggler .icon-bar span {
+    display: block;
+    width: 24px;
+    height: 1px;
+    margin-top: 6px;
+    background-color: #fff
+}
+
+.mai-sub-header .navbar-toggler .icon-bar span:first-child {
+    margin-top: 0
+}
+
+.mai-sub-header .navbar-nav > .nav-item + .nav-item {
+    margin-left: 0;
+}
+
+.mai-sub-header .navbar-nav > .nav-item > .nav-link {
+    font-family: Raleway,sans-serif;
+    font-size: 1.308rem;
+    font-weight: 500;
+    line-height: 54px;
+    min-width: 120px;
+    padding: 0 17px;
+    text-align: center;
+    border-radius: 3px 3px 0 0;
+    color: #fff;
+    -webkit-transition: color .12s ease-in-out;
+    transition: color .12s ease-in-out
+}
+
+@media (min-width: 768px) and (max-width:991.98px) {
+    .mai-sub-header .navbar-nav > .nav-item > .nav-link {
+        font-size: 1.2rem;
+        min-width: 90px;
+        padding: 0 13px
+    }
+}
+
+@media (max-width: 767.98px) {
+    .mai-sub-header .navbar-nav > .nav-item > .nav-link {
+        color: #bebebe;
+        text-align: left;
+        background-color: #3a3a3a;
+        font-size: 1.077rem
+    }
+}
+
+.mai-sub-header .navbar-nav > .nav-item > .nav-link > .icon {
+    font-size: 2.154rem;
+    margin-right: 5px
+}
+
+@media (min-width: 768px) and (max-width:991.98px) {
+    .mai-sub-header .navbar-nav > .nav-item > .nav-link > .icon {
+        font-size: 1.5rem
+    }
+}
+
+@media (max-width: 767.98px) {
+    .mai-sub-header .navbar-nav > .nav-item > .nav-link > .icon {
+        display: inline-block;
+        font-size: 1.615rem;
+        margin-right: 10px;
+        min-width: 21px;
+        text-align: center
+    }
+}
+
+.mai-sub-header .navbar-nav > .nav-item > .nav-link > span {
+    vertical-align: middle
+}
+
+.mai-sub-header .navbar-nav > .nav-item > .nav-link:hover {
+    background-color: transparent;
+    color: #7b639e
+}
+
+@media (max-width: 767.98px) {
+    .mai-sub-header .navbar-nav > .nav-item > .nav-link:hover {
+        background-color: #3a3a3a;
+        color: #bebebe
+    }
+}
+
+.mai-sub-header .navbar-nav > .nav-item > .nav-link.dropdown-toggle:after {
+    display: none
+}
+
+@media (max-width: 767.98px) {
+    .mai-sub-header .navbar-nav > .nav-item.parent > .nav-link:after {
+        position: absolute;
+        content: "?";
+        font-family: "Stroke 7";
+        font-size: 1.9rem;
+        vertical-align: middle;
+        right: 15px
+    }
+
+    .mai-sub-header .navbar-nav > .nav-item.parent.open > .nav-link:after {
+        content: "?"
+    }
+}
+
+.mai-sub-header .navbar-nav > .nav-item.open:hover > a, .mai-sub-header .navbar-nav > .nav-item.open > a {
+    color: #2c7be5;
+    background-color: #fff
+}
+
+@media (max-width: 767.98px) {
+    .mai-sub-header .navbar-nav > .nav-item.open:hover > a, .mai-sub-header .navbar-nav > .nav-item.open > a {
+        background-color: #3a3a3a
+    }
+}
+
+.mai-sub-header .search {
+    position: absolute;
+    top: 48px;
+    right: 0;
+    margin-top: -21px;
+    width: 235px;
+    border-bottom: 1px solid #9b7bcb
+}
+
+@media (max-width: 1199.98px) {
+    .mai-sub-header .search {
+        display: none
+    }
+}
+
+.mai-sub-header .search > input {
+    border: 1px solid transparent;
+    background-color: #8f6bc4;
+    color: #fff;
+    width: 100%;
+    font-family: Raleway,sans-serif;
+    font-size: 1.308rem;
+    font-weight: 500;
+    padding: 8px 10px;
+    outline: 0;
+    -webkit-transition: border-color .3s ease;
+    transition: border-color .3s ease
+}
+
+.mai-sub-header .search > input:focus {
+    border-color: #2c7be5
+}
+
+.mai-sub-header .search > span {
+    position: absolute;
+    color: #fff;
+    right: 8px;
+    top: 50%;
+    font-size: 1.846rem;
+    margin-top: -12px
+}
+
+.mai-sub-header ::-webkit-input-placeholder {
+    color: rgba(255,255,255,.4)
+}
+
+.mai-sub-header :-moz-placeholder {
+    color: rgba(255,255,255,.4);
+    opacity: 1
+}
+
+.mai-sub-header :-ms-input-placeholder {
+    color: rgba(255,255,255,.4)
+}
+
+.mai-nav-tabs-sub {
+    position: absolute;
+    display: none;
+    left: 0;
+    top: 100%;
+    z-index: 999;
+    width: 100%;
+    background-color: #fff
+}
+
+@media (max-width: 767.98px) {
+    .mai-nav-tabs-sub {
+        position: relative;
+        top: 0;
+        background-color: #3f3f3f;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        padding: 5px 0
+    }
+}
+
+.nav-item.open .mai-nav-tabs-sub {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex
+}
+
+.mai-nav-tabs-sub > .nav-item.mega-menu {
+    position: static
+}
+
+.mai-nav-tabs-sub > .nav-item > .nav-link {
+    padding: 0 26px;
+    line-height: 70px
+}
+
+@media (min-width: 768px) and (max-width:991.98px) {
+    .mai-nav-tabs-sub > .nav-item > .nav-link {
+        padding: 0 14px
+    }
+}
+
+@media (max-width: 767.98px) {
+    .mai-nav-tabs-sub > .nav-item > .nav-link {
+        padding-left: 34px;
+        line-height: 50.4px;
+        color: #a2a2a2;
+        font-size: 1rem
+    }
+}
+
+.mai-nav-tabs-sub > .nav-item > .nav-link .icon {
+    margin-right: .4rem
+}
+
+@media (min-width: 768px) and (max-width:991.98px) {
+    .mai-nav-tabs-sub > .nav-item > .nav-link .icon {
+        display: none
+    }
+}
+
+.mai-nav-tabs-sub > .nav-item > .nav-link.active {
+    color: #2c7be5
+}
+
+.mai-nav-tabs-sub > .nav-item.parent > .nav-link {
+    padding-right: 34px
+}
+
+.mai-nav-tabs-sub > .nav-item.parent > .nav-link:after {
+    position: absolute;
+    content: "?";
+    font-family: "Stroke 7";
+    font-size: 1.9rem;
+    vertical-align: middle
+}
+
+@media (max-width: 767.98px) {
+    .mai-nav-tabs-sub > .nav-item.parent > .nav-link:after {
+        right: 15px
+    }
+}
+
+.mai-nav-tabs-sub > .nav-item.parent.open > .nav-link {
+    color: #a07ed2
+}
+
+@media (max-width: 767.98px) {
+    .mai-nav-tabs-sub > .nav-item.parent.open > .nav-link:after {
+        content: "?"
+    }
+}
+
+@media (max-width: 767.98px) {
+    .mai-nav-tabs-sub .dropdown.open > .dropdown-menu {
+        display: block
+    }
+}
+
+.mai-nav-tabs-sub .dropdown-menu {
+    min-width: 200px;
+    -webkit-box-shadow: 0 3px .3077rem rgba(0,0,0,.1);
+    box-shadow: 0 3px .3077rem rgba(0,0,0,.1);
+    margin-top: 0;
+    padding-top: .6rem;
+    border: 0
+}
+
+.mai-nav-tabs-sub .dropdown-menu .dropdown-item {
+    color: #616161
+}
+
+.mai-nav-tabs-sub .dropdown-menu .dropdown-item.active {
+    color: #2c7be5
+}
+
+@media (max-width: 767.98px) {
+    .mai-nav-tabs-sub .dropdown-menu {
+        background-color: #424242;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        padding-bottom: .6rem
+    }
+
+    .mai-nav-tabs-sub .dropdown-menu .dropdown-item {
+        padding-left: 56px;
+        color: #a2a2a2
+    }
+
+    .mai-nav-tabs-sub .dropdown-menu .dropdown-item:hover {
+        background-color: inherit
+    }
+}
+
+.mai-splash-screen .main-content {
+    max-width: 100%;
+    width: 100%
+}
+
+.mai-top-header {
+    /*background: #023F6B;*/
+    /*background: #eef2f7;*/
+    background: #252526;
+}
+
+.mai-top-header > .container {
+    padding: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+@media (max-width: 575.98px) {
+    .mai-top-header > .container {
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between
+    }
+}
+
+.mai-top-header .dropdown-toggle:after {
+    display: none
+}
+
+.mai-top-header .dropdown-menu {
+    margin-top: 0
+}
+
+.mai-top-header .navbar-brand-icon,
+.mai-top-header .navbar-brand-text {
+    background-image: url(../img/sprites.png);
+    background-repeat: no-repeat;
+    background-position: 0 center;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    color: #fff;
+    text-indent: -9999em;
+    padding-bottom: 0;
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 62px;
+}
+
+.mai-tempo-sessao {
+    width: 50px;
+}
+
+.mai-top-header .navbar-brand-icon {
+    width: 30px;
+    height: 24px;
+    background-position: -30px -70px;
+    vertical-align: middle;
+}
+
+.mai-top-header .navbar-brand-text {
+    width: 76px;
+    height: 19px;
+    background-position: 0px -24px;
+    vertical-align: middle;
+    margin-right: 45px;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),(min-resolution:192dpi) {
+    .mai-top-header .navbar-brand-icon,
+    .mai-top-header .navbar-brand-text {
+        background-image: url(../img/logo-2x.png);
+        background-size: 133px 20px
+    }
+}
+
+@media (max-width: 991.98px) {
+    .mai-top-header .navbar-brand-icon,
+    .mai-top-header .navbar-brand-text {
+        -webkit-box-flex: 1;
+        -ms-flex: 1 1 100%;
+        flex: 1 1 100%
+    }
+}
+
+@media (max-width: 767.98px) {
+    .mai-top-header .navbar-brand-text {
+        display: none
+    }
+}
+
+@media (max-width: 575.98px) {
+    .mai-top-header .navbar-brand-text {
+        display: none
+    }
+}
+
+@media (max-width: 767.98px) {
+    .mai-top-header.mai-top-header-show-logo .navbar-brand-icon,
+    .mai-top-header.mai-top-header-show-logo .navbar-brand-text {
+        display: inline-block;
+        -webkit-box-flex: 1;
+        -ms-flex: 1 1;
+        flex: 1 1;
+        margin-right: 0;
+        margin-left: 20px
+    }
+}
+
+.mai-top-header .navbar-nav {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row
+}
+
+.mai-top-header .mai-top-nav {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1;
+    flex: 1 1
+}
+
+@media (max-width: 767.98px) {
+    .mai-top-header .mai-top-nav {
+        display: none
+    }
+}
+
+@media (max-width: 575.98px) {
+    .mai-top-header .mai-top-nav {
+        display: none
+    }
+}
+
+@media (max-width: 991.98px) {
+    .mai-top-header .mai-top-nav {
+        display: none
+    }
+}
+
+.mai-top-header .mai-top-nav .nav-link {
+    padding: 0 18px
+}
+
+.mai-top-header .navbar-collapse {
+    padding-right: 45px
+}
+
+.mai-top-header .mai-icons-nav {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto
+}
+
+@media (max-width: 767.98px) {
+    .mai-top-header .mai-icons-nav {
+        -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+        order: 2
+    }
+}
+
+.mai-top-header .mai-icons-nav > .nav-item.dropdown > .nav-link {
+    padding: .75rem;
+    position: relative
+}
+
+.mai-top-header .mai-icons-nav > .nav-item.dropdown > .nav-link .icon {
+    font-size: 25px;
+    vertical-align: middle;
+    color: #707070
+}
+
+@media (max-width: 767.98px) {
+    .mai-top-header .mai-icons-nav > .nav-item.dropdown > .nav-link .icon {
+        color: #fff
+    }
+}
+
+@media (max-width: 575.98px) {
+    .mai-top-header .mai-icons-nav > .nav-item.dropdown > .nav-link .icon {
+        color: #fff
+    }
+}
+
+.mai-top-header .mai-icons-nav > .nav-item.dropdown > .nav-link .indicator {
+    background: #2c7be5;
+    border-radius: 50%;
+    display: block;
+    height: 16px;
+    width: 16px;
+    position: absolute;
+    top: 0;
+    right: 7px;
+    font-size: 0.75em;
+    text-align: center;
+}
+
+.mai-top-header .mai-icons-nav > .nav-item.dropdown > .nav-link:hover .icon {
+    color: #7f7f7f
+}
+
+@media (max-width: 767.98px) {
+    .mai-top-header .mai-icons-nav > .nav-item.dropdown > .nav-link:hover .icon {
+        color: #fff
+    }
+}
+
+@media (max-width: 575.98px) {
+    .mai-top-header .mai-icons-nav > .nav-item.dropdown > .nav-link:hover .icon {
+        color: #fff
+    }
+}
+
+.mai-top-header .mai-icons-nav > .nav-item.dropdown.show:hover > a, .mai-top-header .mai-icons-nav > .nav-item.dropdown.show > a {
+    background-color: transparent
+}
+
+.mai-top-header .mai-icons-nav > .nav-item.dropdown.show:hover > a .icon, .mai-top-header .mai-icons-nav > .nav-item.dropdown.show > a .icon {
+    color: #1997c6
+}
+
+@media (max-width: 767.98px) {
+    .mai-top-header .mai-icons-nav > .nav-item.dropdown.show:hover > a .icon, .mai-top-header .mai-icons-nav > .nav-item.dropdown.show > a .icon {
+        color: #fff
+    }
+}
+
+@media (max-width: 575.98px) {
+    .mai-top-header .mai-icons-nav > .nav-item.dropdown.show:hover > a .icon, .mai-top-header .mai-icons-nav > .nav-item.dropdown.show > a .icon {
+        color: #fff
+    }
+}
+
+.mai-top-header .mai-icons-nav > .nav-item.dropdown.show:hover > a:after,
+.mai-top-header .mai-icons-nav > .nav-item.dropdown.show > a:after {
+    position: absolute;
+    content: "";
+    display: inline-block;
+    border-bottom: 10px solid #006494;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 0;
+    right: 50%;
+    margin-right: -10px
+}
+
+.mai-top-header .mai-icons-nav .mai-messages > .dropdown-menu,
+.mai-top-header .mai-icons-nav .mai-notifications > .dropdown-menu,
+.mai-top-header .mai-icons-nav .mai-settings > .dropdown-menu,
+.mai-top-header .mai-icons-nav .mai-menu > .dropdown-menu,
+.mai-top-header .mai-icons-nav .mai-user-nav > .dropdown-menu {
+    width: 15em;
+    border-radius: 0.3em;
+    left: auto;
+    padding: 0;
+}
+
+@media (max-width: 767.98px) {
+    .mai-top-header .mai-icons-nav .mai-messages > .dropdown-menu,
+    .mai-top-header .mai-icons-nav .mai-notifications > .dropdown-menu,
+    .mai-top-header .mai-icons-nav .mai-settings > .dropdown-menu {
+        right: 0;
+        margin-right: 0
+    }
+}
+
+@media (max-width: 575.98px) {
+    .mai-top-header .mai-icons-nav .mai-messages > .dropdown-menu,
+    .mai-top-header .mai-icons-nav .mai-notifications > .dropdown-menu,
+    .mai-top-header .mai-icons-nav .mai-settings > .dropdown-menu,
+    .mai-top-header .mai-icons-nav .mai-menu > .dropdown-menu {
+        width: 100%;
+        left: 0
+    }
+}
+
+.mai-top-header .mai-icons-nav .mai-messages > .dropdown-menu .title,
+.mai-top-header .mai-icons-nav .mai-notifications > .dropdown-menu .title,
+.mai-top-header .mai-icons-nav .mai-settings > .dropdown-menu .title,
+.mai-top-header .mai-icons-nav .mai-menu > .dropdown-menu .title {
+    font-family: Raleway,sans-serif;
+    font-size: 1.154rem;
+    color: #949494;
+    background-color: #3b3b3b;
+    text-align: center;
+    padding: 14px 0 14px
+}
+
+.mai-top-header .mai-icons-nav .mai-messages > .dropdown-menu .footer a,
+.mai-top-header .mai-icons-nav .mai-notifications > .dropdown-menu .footer a,
+.mai-top-header .mai-icons-nav .mai-settings > .dropdown-menu .footer a {
+    font-family: Raleway,sans-serif;
+    font-size: 1rem;
+    color: #949494;
+    background-color: #3b3b3b;
+    text-align: center;
+    padding: 10px 0 10px;
+    display: block
+}
+
+.mai-top-header .mai-icons-nav .mai-messages > .dropdown-menu .footer a:hover,
+.mai-top-header .mai-icons-nav .mai-notifications > .dropdown-menu .footer a:hover,
+.mai-top-header .mai-icons-nav .mai-settings > .dropdown-menu .footer a:hover {
+    background-color: #383838;
+    color: #b2b2b2
+}
+
+.mai-top-header .mai-icons-nav .mai-messages .mai-scroller-messages,
+.mai-top-header .mai-icons-nav .mai-notifications .mai-scroller-notifications {
+    position: relative;
+    width: 100%;
+    height: 252px
+}
+
+.mai-top-header .mai-icons-nav .mai-messages .mai-scroller-messages > .content > ul, .mai-top-header .mai-icons-nav .mai-messages .mai-scroller-notifications > .content > ul, .mai-top-header .mai-icons-nav .mai-notifications .mai-scroller-messages > .content > ul, .mai-top-header .mai-icons-nav .mai-notifications .mai-scroller-notifications > .content > ul {
+    list-style: none;
+    padding-left: 0
+}
+
+.mai-top-header .mai-icons-nav .mai-messages .mai-scroller-messages > .content > ul > li, .mai-top-header .mai-icons-nav .mai-messages .mai-scroller-notifications > .content > ul > li, .mai-top-header .mai-icons-nav .mai-notifications .mai-scroller-messages > .content > ul > li, .mai-top-header .mai-icons-nav .mai-notifications .mai-scroller-notifications > .content > ul > li {
+    overflow: hidden;
+    border-bottom: 1px solid #414141;
+    background-color: #3d3d3d
+}
+
+.mai-top-header .mai-icons-nav .mai-messages .mai-scroller-messages > .content > ul > li > a, .mai-top-header .mai-icons-nav .mai-messages .mai-scroller-notifications > .content > ul > li > a, .mai-top-header .mai-icons-nav .mai-notifications .mai-scroller-messages > .content > ul > li > a, .mai-top-header .mai-icons-nav .mai-notifications .mai-scroller-notifications > .content > ul > li > a {
+    padding: 15px;
+    display: block;
+    overflow: hidden
+}
+
+.mai-top-header .mai-icons-nav .mai-messages .mai-scroller-messages > .content > ul > li > a .icon, .mai-top-header .mai-icons-nav .mai-messages .mai-scroller-messages > .content > ul > li > a .img, .mai-top-header .mai-icons-nav .mai-messages .mai-scroller-notifications > .content > ul > li > a .icon, .mai-top-header .mai-icons-nav .mai-messages .mai-scroller-notifications > .content > ul > li > a .img, .mai-top-header .mai-icons-nav .mai-notifications .mai-scroller-messages > .content > ul > li > a .icon, .mai-top-header .mai-icons-nav .mai-notifications .mai-scroller-messages > .content > ul > li > a .img, .mai-top-header .mai-icons-nav .mai-notifications .mai-scroller-notifications > .content > ul > li > a .icon, .mai-top-header .mai-icons-nav .mai-notifications .mai-scroller-notifications > .content > ul > li > a .img {
+    margin-top: 3px;
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    background-color: #2e2e2e;
+    float: left;
+    text-align: center
+}
+
+.mai-top-header .mai-icons-nav .mai-messages .mai-scroller-messages > .content > ul > li > a .icon > span, .mai-top-header .mai-icons-nav .mai-messages .mai-scroller-messages > .content > ul > li > a .img > span, .mai-top-header .mai-icons-nav .mai-messages .mai-scroller-notifications > .content > ul > li > a .icon > span, .mai-top-header .mai-icons-nav .mai-messages .mai-scroller-notifications > .content > ul > li > a .img > span, .mai-top-header .mai-icons-nav .mai-notifications .mai-scroller-messages > .content > ul > li > a .icon > span, .mai-top-header .mai-icons-nav .mai-notifications .mai-scroller-messages > .content > ul > li > a .img > span, .mai-top-header .mai-icons-nav .mai-notifications .mai-scroller-notifications > .content > ul > li > a .icon > span, .mai-top-header .mai-icons-nav .mai-notifications .mai-scroller-notifications > .content > ul > li > a .img > span {
+    font-size: 1.846rem;
+    color: #2c7be5;
+    line-height: 34px
+}
+
+.mai-top-header .mai-icons-nav .mai-messages .mai-scroller-messages > .content > ul > li > a .content, .mai-top-header .mai-icons-nav .mai-messages .mai-scroller-notifications > .content > ul > li > a .content, .mai-top-header .mai-icons-nav .mai-notifications .mai-scroller-messages > .content > ul > li > a .content, .mai-top-header .mai-icons-nav .mai-notifications .mai-scroller-notifications > .content > ul > li > a .content {
+    padding-left: 0;
+    line-height: 14px
+}
+
+.mai-top-header .mai-icons-nav .mai-messages .mai-scroller-messages > .content > ul > li > a .content .desc,
+.mai-top-header .mai-icons-nav .mai-messages .mai-scroller-notifications > .content > ul > li > a .content .desc,
+.mai-top-header .mai-icons-nav .mai-notifications .mai-scroller-messages > .content > ul > li > a .content .desc,
+.mai-top-header .mai-icons-nav .mai-notifications .mai-scroller-notifications > .content > ul > li > a .content .desc {
+    color: #cbcbcb;
+    font-size: 1rem;
+    line-height: 17px
+}
+
+.mai-top-header .mai-icons-nav .mai-messages .mai-scroller-messages > .content > ul > li > a .content .desc strong, .mai-top-header .mai-icons-nav .mai-messages .mai-scroller-notifications > .content > ul > li > a .content .desc strong, .mai-top-header .mai-icons-nav .mai-notifications .mai-scroller-messages > .content > ul > li > a .content .desc strong, .mai-top-header .mai-icons-nav .mai-notifications .mai-scroller-notifications > .content > ul > li > a .content .desc strong {
+    font-weight: 600
+}
+
+.mai-top-header .mai-icons-nav .mai-messages .mai-scroller-messages > .content > ul > li > a .content .date, .mai-top-header .mai-icons-nav .mai-messages .mai-scroller-notifications > .content > ul > li > a .content .date, .mai-top-header .mai-icons-nav .mai-notifications .mai-scroller-messages > .content > ul > li > a .content .date, .mai-top-header .mai-icons-nav .mai-notifications .mai-scroller-notifications > .content > ul > li > a .content .date {
+    color: #8a8a8a;
+    display: block;
+    font-size: .9231rem;
+    font-style: italic;
+    font-weight: 300;
+    margin-top: 5px
+}
+
+.mai-top-header .mai-icons-nav .mai-messages .mai-scroller-messages > .content > ul > li:hover, .mai-top-header .mai-icons-nav .mai-messages .mai-scroller-notifications > .content > ul > li:hover, .mai-top-header .mai-icons-nav .mai-notifications .mai-scroller-messages > .content > ul > li:hover, .mai-top-header .mai-icons-nav .mai-notifications .mai-scroller-notifications > .content > ul > li:hover {
+    background-color: #333333;
+}
+
+.mai-top-header .mai-icons-nav .mai-messages .mai-scroller-messages > .content > ul > li:hover > a, .mai-top-header .mai-icons-nav .mai-messages .mai-scroller-notifications > .content > ul > li:hover > a, .mai-top-header .mai-icons-nav .mai-notifications .mai-scroller-messages > .content > ul > li:hover > a, .mai-top-header .mai-icons-nav .mai-notifications .mai-scroller-notifications > .content > ul > li:hover > a {
+    color: #fff
+}
+
+.mai-top-header .mai-icons-nav .mai-messages .mai-scroller-messages > .content > ul > li:hover > a .icon, .mai-top-header .mai-icons-nav .mai-messages .mai-scroller-notifications > .content > ul > li:hover > a .icon, .mai-top-header .mai-icons-nav .mai-notifications .mai-scroller-messages > .content > ul > li:hover > a .icon, .mai-top-header .mai-icons-nav .mai-notifications .mai-scroller-notifications > .content > ul > li:hover > a .icon {
+    background-color: #2c7be5
+}
+
+.mai-top-header .mai-icons-nav .mai-messages .mai-scroller-messages > .content > ul > li:hover > a .icon > span, .mai-top-header .mai-icons-nav .mai-messages .mai-scroller-notifications > .content > ul > li:hover > a .icon > span, .mai-top-header .mai-icons-nav .mai-notifications .mai-scroller-messages > .content > ul > li:hover > a .icon > span, .mai-top-header .mai-icons-nav .mai-notifications .mai-scroller-notifications > .content > ul > li:hover > a .icon > span {
+    color: #fff
+}
+
+.mai-top-header .mai-icons-nav .mai-messages .mai-scroller-messages > .content > ul > li:hover > a .content .desc, .mai-top-header .mai-icons-nav .mai-messages .mai-scroller-notifications > .content > ul > li:hover > a .content .desc, .mai-top-header .mai-icons-nav .mai-notifications .mai-scroller-messages > .content > ul > li:hover > a .content .desc, .mai-top-header .mai-icons-nav .mai-notifications .mai-scroller-notifications > .content > ul > li:hover > a .content .desc {
+    color: #fff
+}
+
+.mai-top-header .mai-icons-nav .mai-messages .mai-scroller-messages > .content > ul > li:hover > a .content .date, .mai-top-header .mai-icons-nav .mai-messages .mai-scroller-notifications > .content > ul > li:hover > a .content .date, .mai-top-header .mai-icons-nav .mai-notifications .mai-scroller-messages > .content > ul > li:hover > a .content .date, .mai-top-header .mai-icons-nav .mai-notifications .mai-scroller-notifications > .content > ul > li:hover > a .content .date {
+    color: #AAAAAA
+}
+
+.mai-top-header .mai-icons-nav .mai-messages .mai-scroller-messages > .content > ul > li:last-child, .mai-top-header .mai-icons-nav .mai-messages .mai-scroller-notifications > .content > ul > li:last-child, .mai-top-header .mai-icons-nav .mai-notifications .mai-scroller-messages > .content > ul > li:last-child, .mai-top-header .mai-icons-nav .mai-notifications .mai-scroller-notifications > .content > ul > li:last-child {
+    border-bottom: 0
+}
+
+.mai-top-header .mai-icons-nav .mai-messages .mai-scroller-messages > .content > ul > li > a .img {
+    width: 36px;
+    height: 36px;
+    background-color: transparent;
+    border-radius: 2px;
+    overflow: hidden;
+    margin-top: 1px
+}
+
+.mai-top-header .mai-icons-nav .mai-messages .mai-scroller-messages > .content > ul > li > a .img > img {
+    max-width: 100%;
+    border-radius: 30px;
+}
+
+.mai-top-header .mai-icons-nav .mai-messages .mai-scroller-messages > .content > ul > li > a > .content .date {
+    float: right;
+    margin-top: 1px
+}
+
+.mai-top-header .mai-icons-nav .mai-messages .mai-scroller-messages > .content > ul > li > a > .content .name {
+    font-family: Raleway,sans-serif;
+    font-size: 1.077rem;
+    font-weight: 500;
+    color: #cbcbcb;
+    display: block;
+    margin-bottom: 5px
+}
+
+.mai-top-header .mai-icons-nav .mai-messages .mai-scroller-messages > .content > ul > li > a > .content .desc {
+    color: #9e9e9e
+}
+
+.mai-top-header .mai-icons-nav .mai-messages .mai-scroller-messages > .content > ul > li:hover > a .content .name {
+    color: #fff
+}
+
+.mai-top-header .mai-icons-nav .mai-settings .dropdown-menu .content ul {
+    padding: 0
+}
+
+.mai-top-header .mai-icons-nav .mai-settings .dropdown-menu .content ul li {
+    display: block;
+    overflow: hidden;
+    list-style: none;
+    padding: 15px 20px;
+    line-height: 34px;
+    border-bottom: 1px solid #424242;
+    vertical-align: middle;
+    background-color: #3d3d3d
+}
+
+.mai-top-header .mai-icons-nav .mai-settings .dropdown-menu .content ul li > span {
+    font-family: Raleway,sans-serif;
+    color: #cbcbcb;
+    font-weight: 500;
+    font-size: 1.154rem
+}
+
+.mai-top-header .mai-icons-nav .mai-settings .dropdown-menu .content ul li .switch-button {
+    vertical-align: middle;
+    background-color: #323232
+}
+
+.mai-top-header .mai-icons-nav .mai-settings .dropdown-menu .content ul li .switch-button label:before {
+    color: #cbcbcb
+}
+
+.mai-top-header .mai-icons-nav .mai-settings .dropdown-menu .content ul li .switch-button input[type=checkbox]:checked + span label:before {
+    color: #fff
+}
+
+.mai-top-header .mai-icons-nav .mai-settings .dropdown-menu .content ul li:hover {
+    background-color: #404040
+}
+
+.mai-top-header .mai-icons-nav .mai-settings .dropdown-menu .content ul li:last-child {
+    border-bottom: 0
+}
+
+@media (max-width: 767.98px) {
+    .mai-top-header-show-logo .mai-icons-nav {
+        display: none
+    }
+}
+
+.mai-top-header .navbar-nav > .nav-item > .nav-link {
+    font-family: Raleway,sans-serif;
+    font-size: 1.5rem;
+    padding: 0;
+    outline: 0;
+}
+
+.mai-top-header .navbar-nav > .nav-item.dropdown > a .angle-down {
+    position: relative;
+    font-size: 2.077rem;
+    vertical-align: middle;
+    width: 27px;
+    display: inline-block;
+    line-height: inherit
+}
+
+.mai-top-header .navbar-nav > .nav-item.dropdown .dropdown-menu {
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-color: #323232;
+}
+
+.mai-top-header .navbar-nav > .nav-item.dropdown .dropdown-menu .dropdown-item {
+    color: #ffffff;
+}
+
+.mai-top-header .navbar-nav > .nav-item.dropdown .dropdown-menu .dropdown-item:hover {
+    background-color: #0069d9;
+    color: #fff
+}
+
+.mai-top-header .navbar-nav > .nav-item.dropdown .dropdown-menu .dropdown-item:focus {
+    background-color: transparent
+}
+
+.mai-user-nav {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto
+}
+
+@media (max-width: 767.98px) {
+    .mai-top-header-show-logo .mai-user-nav {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 1 auto;
+        flex: 0 1 auto;
+        margin-right: 20px
+    }
+}
+
+@media (max-width: 575.98px) {
+    .mai-top-header-show-logo .mai-user-nav {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 1 auto;
+        flex: 0 1 auto;
+        margin-right: 20px
+    }
+}
+
+@media (max-width: 575.98px) {
+    .mai-user-nav > .nav-item.dropdown {
+        width: 100%
+    }
+}
+
+.mai-user-nav > .nav-item.dropdown.show:hover > a .angle-down:after, .mai-user-nav > .nav-item.dropdown.show > a .angle-down:after {
+    position: absolute;
+    content: "";
+    display: inline-block;
+    border-bottom: 10px solid #323232;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 0;
+    right: 50%;
+    bottom: 0;
+    margin-right: -10px
+}
+
+.nav-link {
+    font-size: .9375rem;
+    color: #545454
+}
+
+.nav-link.hover, .nav-link:hover {
+    color: #2c7be5
+}
+
+.nav-link .icon {
+    font-size: 1.231rem;
+    vertical-align: middle
+}
+
+li a.nav-link {
+    color: white;
+    border: 1px solid white;
+}
+
+li .nav-link:hover {
+    color: black;
+    background-color: white;
+}
+
+li a.nav-link.active, li a.nav-link.active:hover {
+    color: white;
+    background-color: #007bff;
+    border: none;
+}
+
+.mai-user-nav > .nav-item.dropdown > .nav-link {
+    color: #fff;
+    padding-right: 0;
+    font-size: 1.231rem;
+    white-space: nowrap
+}
+
+@media (max-width: 767.98px) {
+    .mai-user-nav > .nav-item.dropdown > .nav-link {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center
+    }
+}
+
+@media (max-width: 575.98px) {
+    .mai-user-nav > .nav-item.dropdown > .nav-link {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center
+    }
+}
+
+.mai-user-nav > .nav-link img {
+    max-width: 1.5em;
+    max-height: 1.5em;
+    border-radius: 1.5em;
+    padding: 0;
+}
+
+.mai-user-nav > .nav-item.dropdown > .nav-link .user-name {
+    margin-left: 10px
+}
+
+@media (max-width: 767.98px) {
+    .mai-top-header-show-logo .mai-user-nav > .nav-item.dropdown > .nav-link .user-name {
+        display: none
+    }
+}
+
+@media (max-width: 575.98px) {
+    .mai-user-nav > .nav-item.dropdown > .nav-link .user-name {
+        -webkit-box-flex: 1;
+        -ms-flex: 1 1 100%;
+        flex: 1 1 100%;
+        overflow: hidden;
+        text-overflow: ellipsis
+    }
+}
+
+@media (max-width: 767.98px) {
+    .mai-user-nav > .nav-item.dropdown > .nav-link .user-name {
+        -webkit-box-flex: 1;
+        -ms-flex: 1 1 100%;
+        flex: 1 1 100%;
+        overflow: hidden;
+        text-overflow: ellipsis
+    }
+}
+
+@media (max-width: 767.98px) {
+    .mai-top-header-show-logo .mai-user-nav > .nav-item.dropdown .dropdown-menu {
+        left: auto;
+        right: -10px
+    }
+}
+
+@media (max-width: 575.98px) {
+    .mai-top-header-show-logo .mai-user-nav > .nav-item.dropdown .dropdown-menu {
+        right: 10px
+    }
+}
+
+.mai-user-nav > .nav-item.dropdown .dropdown-menu .dropdown-item .icon {
+    font-size: 1.538rem;
+    vertical-align: middle;
+    margin-right: 10px
+}
+
+.mai-user-nav > .nav-item.dropdown .dropdown-menu:after {
+    left: auto;
+    right: 20px
+}
+
+.mai-modal-open {
+    overflow-x: visible
+}
+
+@media print {
+    .navbar {
+        display: none
+    }
+}
+
+.navbar {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 0;
+}
+
+.navbar > .container, .navbar > .container-fluid {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between
+}
+
+.navbar-brand-icon,
+.navbar-brand-text {
+    display: inline-block;
+    padding-top: .766574rem;
+    padding-bottom: .766574rem;
+    font-size: 1.154rem;
+    line-height: inherit;
+    white-space: nowrap
+}
+
+.navbar-brand-icon:focus,
+.navbar-brand-icon:hover,
+.navbar-brand-text:focus,
+.navbar-brand-text:hover {
+    text-decoration: none
+}
+
+.navbar-nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none
+}
+
+.navbar-nav .nav-link {
+    padding-right: 0;
+    padding-left: 0
+}
+
+.navbar-nav .dropdown-menu {
+    position: static;
+    float: none
+}
+
+.navbar-text {
+    display: inline-block;
+    padding-top: .885rem;
+    padding-bottom: .885rem
+}
+
+.navbar-collapse {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.navbar-toggler {
+    padding: .25rem .75rem;
+    font-size: 1.154rem;
+    line-height: 1;
+    background-color: transparent;
+    border: 1px solid transparent
+}
+
+.navbar-toggler:focus, .navbar-toggler:hover {
+    text-decoration: none
+}
+
+.navbar-toggler:not(:disabled):not(.disabled) {
+    cursor: pointer
+}
+
+.navbar-toggler-icon {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    content: "";
+    background: no-repeat center center;
+    background-size: 100% 100%
+}
+
+@media (max-width: 575.98px) {
+    .navbar-expand-sm > .container, .navbar-expand-sm > .container-fluid {
+        padding-right: 0;
+        padding-left: 0
+    }
+}
+
+@media (min-width: 576px) {
+    .navbar-expand-sm {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start
+    }
+
+    .navbar-expand-sm .navbar-nav {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row
+    }
+
+    .navbar-expand-sm .navbar-nav .dropdown-menu {
+        position: absolute
+    }
+
+    .navbar-expand-sm .navbar-nav .nav-link {
+        padding-right: .5rem;
+        padding-left: .5rem
+    }
+
+    .navbar-expand-sm > .container, .navbar-expand-sm > .container-fluid {
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap
+    }
+
+    .navbar-expand-sm .navbar-collapse {
+        display: -webkit-box !important;
+        display: -ms-flexbox !important;
+        display: flex !important;
+        -ms-flex-preferred-size: auto;
+        flex-basis: auto
+    }
+
+    .navbar-expand-sm .navbar-toggler {
+        display: none
+    }
+}
+
+@media (max-width: 767.98px) {
+    .navbar-expand-md > .container, .navbar-expand-md > .container-fluid {
+        padding-right: 0;
+        padding-left: 0
+    }
+}
+
+@media (min-width: 768px) {
+    .navbar-expand-md {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start
+    }
+
+    .navbar-expand-md .navbar-nav {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row
+    }
+
+    .navbar-expand-md .navbar-nav .dropdown-menu {
+        position: absolute
+    }
+
+    .navbar-expand-md .navbar-nav .nav-link {
+        padding-right: .5rem;
+        padding-left: .5rem
+    }
+
+    .navbar-expand-md > .container, .navbar-expand-md > .container-fluid {
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap
+    }
+
+    .navbar-expand-md .navbar-collapse {
+        display: -webkit-box !important;
+        display: -ms-flexbox !important;
+        display: flex !important;
+        -ms-flex-preferred-size: auto;
+        flex-basis: auto
+    }
+}
+
+@media (max-width: 991.98px) {
+    .navbar-expand-lg > .container, .navbar-expand-lg > .container-fluid {
+        padding-right: 0;
+        padding-left: 0
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar-expand-lg {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start
+    }
+
+    .navbar-expand-lg .navbar-nav {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row
+    }
+
+    .navbar-expand-lg .navbar-nav .dropdown-menu {
+        position: absolute
+    }
+
+    .navbar-expand-lg .navbar-nav .nav-link {
+        padding-right: .5rem;
+        padding-left: .5rem
+    }
+
+    .navbar-expand-lg > .container, .navbar-expand-lg > .container-fluid {
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap
+    }
+
+    .navbar-expand-lg .navbar-collapse {
+        display: -webkit-box !important;
+        display: -ms-flexbox !important;
+        display: flex !important;
+        -ms-flex-preferred-size: auto;
+        flex-basis: auto
+    }
+
+    .navbar-expand-lg .navbar-toggler {
+        display: none
+    }
+}
+
+@media (max-width: 1199.98px) {
+    .navbar-expand-xl > .container, .navbar-expand-xl > .container-fluid {
+        padding-right: 0;
+        padding-left: 0
+    }
+}
+
+@media (min-width: 1200px) {
+    .navbar-expand-xl {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start
+    }
+
+    .navbar-expand-xl .navbar-nav {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row
+    }
+
+    .navbar-expand-xl .navbar-nav .dropdown-menu {
+        position: absolute
+    }
+
+    .navbar-expand-xl .navbar-nav .nav-link {
+        padding-right: .5rem;
+        padding-left: .5rem
+    }
+
+    .navbar-expand-xl > .container, .navbar-expand-xl > .container-fluid {
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap
+    }
+
+    .navbar-expand-xl .navbar-collapse {
+        display: -webkit-box !important;
+        display: -ms-flexbox !important;
+        display: flex !important;
+        -ms-flex-preferred-size: auto;
+        flex-basis: auto
+    }
+
+    .navbar-expand-xl .navbar-toggler {
+        display: none
+    }
+}
+
+.navbar-expand {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row nowrap;
+    flex-flow: wrap;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    //justify-content: flex-start
+}
+
+.navbar-expand > .container, .navbar-expand > .container-fluid {
+    padding-right: 0;
+    padding-left: 0
+}
+
+.navbar-expand .navbar-nav {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex: auto;
+}
+
+.navbar-expand .navbar-nav .dropdown-menu {
+    position: absolute
+}
+
+.navbar-expand .navbar-nav .nav-link {
+    padding-right: .5rem;
+    padding-left: .5rem
+}
+
+.navbar-expand > .container, .navbar-expand > .container-fluid {
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap
+}
+
+.navbar-expand .navbar-collapse {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto
+}
+
+.navbar-expand .navbar-toggler {
+    display: none
+}
+
+.navbar-light .navbar-brand-icon,
+.navbar-light .navbar-brand-text {
+    color: rgba(0,0,0,.9)
+}
+
+.navbar-light .navbar-brand-icon:focus,
+.navbar-light .navbar-brand-icon:hover,
+.navbar-light .navbar-brand-text:focus,
+.navbar-light .navbar-brand-text:hover {
+    color: rgba(0,0,0,.9)
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(0,0,0,.5)
+}
+
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    color: rgba(0,0,0,.7)
+}
+
+.navbar-light .navbar-nav .nav-link.disabled {
+    color: rgba(0,0,0,.3)
+}
+
+.navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show > .nav-link {
+    color: rgba(0,0,0,.9)
+}
+
+.navbar-light .navbar-toggler {
+    color: rgba(0,0,0,.5);
+    border-color: rgba(0,0,0,.1)
+}
+
+.navbar-light .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0,0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E")
+}
+
+.navbar-light .navbar-text {
+    color: rgba(0,0,0,.5)
+}
+
+.navbar-light .navbar-text a {
+    color: rgba(0,0,0,.9)
+}
+
+.navbar-light .navbar-text a:focus, .navbar-light .navbar-text a:hover {
+    color: rgba(0,0,0,.9)
+}
+
+.navbar-dark .navbar-brand-icon,
+.navbar-dark .navbar-brand-text {
+    color: rgba(255,255,255,.75)
+}
+
+.navbar-dark .navbar-brand-icon:focus,
+.navbar-dark .navbar-brand-icon:hover,
+.navbar-dark .navbar-brand-text:focus,
+.navbar-dark .navbar-brand-text:hover {
+    color: rgba(255,255,255,.75)
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255,255,255,1)
+}
+
+.navbar-dark .navbar-nav .nav-link:focus,
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .active > .nav-link,
+.navbar-dark .navbar-nav .nav-link.active,
+.navbar-dark .navbar-nav .nav-link.show,
+.navbar-dark .navbar-nav .show > .nav-link {
+    color: rgba(255,255,255,1);
+    background-color: #2A3235;
+}
+
+.navbar-dark .navbar-nav .nav-link.disabled {
+    color: rgba(255,255,255,.25)
+}
+
+.navbar-dark .navbar-toggler {
+    color: rgba(255,255,255,.5);
+    border-color: rgba(255,255,255,.1)
+}
+
+.navbar-dark .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E")
+}
+
+.navbar-dark .navbar-text {
+    color: rgba(255,255,255,.5)
+}
+
+.navbar-dark .navbar-text a {
+    color: rgba(255,255,255,.75)
+}
+
+.navbar-dark .navbar-text a:focus, .navbar-dark .navbar-text a:hover {
+    color: rgba(255,255,255,.75)
+}

@@ -1,0 +1,181 @@
+#TB_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1040;
+    width: 100vw;
+    height: 100vh;
+    background-color: #00394f;
+    opacity: 0.5;
+}
+
+#TB_window {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: calc(100% - 50px);
+    z-index: 1050;
+    transform: translate(0,-150px);
+    transition: transform .3s ease-out;
+}
+
+    #TB_window.show {
+        transform: translate(0,0);
+    }
+
+#TB_content {
+    width: 75%;
+    height: 100%;
+    margin: 1.75em auto;
+    overflow: auto;
+    background-color: #fff;
+    border-radius: .5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+#TB_body {
+    position: relative;
+    flex: 1 1 auto;
+}
+
+#TB_iframeContent {
+    width:100%;
+    height:100%;
+    border: none;
+}
+
+* html #TB_window {
+    position: absolute;
+    margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin=document.documentElement && document.documentElement.scrollTop || document.body.scrollTop) + 'px');
+}
+
+    #TB_window img#TB_Image {
+        display: block;
+        margin: 15px 0 0 15px;
+        border-right: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        border-top: 1px solid #666;
+        border-left: 1px solid #666;
+    }
+
+#TB_caption {
+    height: 25px;
+    padding: 7px 30px 10px 25px;
+    float: left;
+}
+
+#TB_closeWindow {
+    height: 25px;
+    padding: 11px 25px 10px 0;
+    float: right;
+}
+
+#TB_closeAjaxWindow.icon-close {
+    position: relative;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    opacity: .3;
+    cursor: pointer;
+    outline: 0;
+}
+
+#TB_closeAjaxWindow.icon-close:hover {
+    opacity: 1;
+    background-color: rgba(0,0,0,.2);
+    border-radius: 16px;
+}
+
+    #TB_closeAjaxWindow.icon-close::after,
+    #TB_closeAjaxWindow.icon-close::before {
+        content: ' ';
+        position: absolute;
+        top: 6px;
+        left: 11px;
+        width: 2px;
+        height: 12px;
+        background-color: #333;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+    }
+
+    #TB_closeAjaxWindow.icon-close:before {
+        transform: rotate(45deg);
+    }
+
+    #TB_closeAjaxWindow.icon-close:after {
+        transform: rotate(-45deg);
+    }
+
+#TB_header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e3ebf6;
+    border-top-left-radius: calc(.5rem - 1px);
+    border-top-right-radius: calc(.5rem - 1px);
+}
+
+#TB_ajaxContent {
+    clear: both;
+    padding: 1em;
+    overflow: auto;
+    text-align: left;
+    line-height: 1.4em;
+}
+
+    #TB_ajaxContent.TB_modal {
+        padding: 15px;
+    }
+
+    #TB_ajaxContent p {
+        padding: 5px 0px 5px 0px;
+    }
+
+#TB_load {
+    position: fixed;
+    display: none;
+    height: 13px;
+    width: 208px;
+    z-index: 1050;
+    top: 50%;
+    left: 50%;
+    margin: -6px 0 0 -104px;
+}
+
+* html #TB_load {
+    position: absolute;
+    margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin=document.documentElement && document.documentElement.scrollTop || document.body.scrollTop) + 'px');
+}
+
+#TB_HideSelect {
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    border: none;
+    filter: alpha(opacity=0);
+    -moz-opacity: 0;
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+}
+
+* html #TB_HideSelect {
+    position: absolute;
+    height: expression(document.body.scrollHeight > document.body.offsetHeight ? document.body.scrollHeight:document.body.offsetHeight + 'px');
+}
+
+.TB_iframeContent {
+    height: 100%;
+    padding-top: 38px;
+}
+
+.tb-open {
+    overflow: hidden;
+}

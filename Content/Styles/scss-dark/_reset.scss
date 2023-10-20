@@ -1,0 +1,407 @@
+html, body {
+    height:100%;
+    padding:0;
+    margin:0;
+}
+
+body {
+    font-size: .9375rem;
+    color: #E9E9E9;
+    background-color: #252526;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-align: left;
+    vertical-align: top;
+}
+
+strong, b {
+    font-weight: bold;
+}
+
+pre {
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+}
+
+fieldset, img, abbr, acronym {
+    border: 0;
+}
+
+textarea {
+    overflow: auto;
+    font-family: inherit;
+}
+
+em {
+    font-style: italic;
+}
+
+form textarea {
+    width: 100%;
+}
+
+form input[type="file"] {
+    border: none;
+    cursor: pointer;
+}
+
+form input[type="submit"] {
+    cursor: pointer;
+}
+
+form input[type="button"] {
+    cursor: pointer;
+    vertical-align: top;
+}
+
+form input[readonly="readonly"],
+form input:disabled,
+form select:disabled,
+form input:-moz-read-only,
+form input:read-only
+{
+    background: #ddd;
+    border: solid 1px #aaa;
+}
+
+header, footer, hgroup,
+nav, section {
+    display: block;
+}
+
+mark {
+    background-color: #a6dbed;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+@media print {
+    html,
+    body,
+    form
+    {
+        border: none;
+        padding: 0;
+        margin: 0;
+    }
+    .table {
+        position: relative;
+
+        thead tr th {
+            background-color: #f9fbfd;
+            text-transform: uppercase;
+            font-size: .8125rem;
+            font-weight: 600;
+            letter-spacing: .08em;
+            color: #95aac9;
+            border-bottom-width: 1px;
+        }
+
+        tbody tr td,
+        tr td {
+            color: black;
+        }
+
+        tfoot tr td {
+            color: black;
+            font-weight: bold;
+        }
+    }
+
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-weight: 500;
+    line-height: 1.1
+}
+
+h1 {
+    font-size: 1.625rem
+}
+
+h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1.125rem;
+}
+
+h3 {
+    font-size: 1.0625rem;
+    margin-bottom: .84375rem;
+}
+
+h4 {
+    font-size: .9375rem;
+    margin-bottom: .5625rem;
+}
+
+h5 {
+    font-size: .8125rem;
+    margin-bottom: .5625rem;
+}
+
+h6 {
+    font-size: .625rem;
+    margin-bottom: .5625rem;
+}
+
+//Acessibilidade tamanhos das fontes
+
+body.body-sx {
+    font-size: 0.75rem !important;
+
+    .menu {
+        font-size: .9375rem;
+    }
+
+    .btn, .btn-sm {
+        font-size: 0.75rem !important;
+    }
+
+    .form-control, .nav-link {
+        font-size: 0.75rem !important;
+    }
+
+    .table, .table-sm, .table thead tr th, .table-sm thead tr th {
+        font-size: 0.75rem !important;
+    }
+
+    .box-post .infos-base .nome {
+        font-size: 0.75rem !important;
+    }
+
+    h1 {
+        font-size: 1.25rem;
+    }
+
+    h2 {
+        font-size: 1.125rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    h4 {
+        font-size: 0.938rem;
+    }
+
+    h5 {
+        font-size: 0.875rem;
+    }
+
+    h6 {
+        font-size: 0.75rem;
+    }
+}
+
+body.body-sm {
+    font-size: 1rem !important;
+
+    .menu {
+        font-size: .9375rem;
+    }
+
+    .btn {
+        font-size: 1rem !important;
+    }
+
+    .form-control, .nav-link {
+        font-size: 1rem !important;
+    }
+
+    .table, .table-sm, .table thead tr th, .table-sm thead tr th {
+        font-size: 1rem !important;
+    }
+
+    .box-post .infos-base .nome {
+        font-size: 1rem !important;
+    }
+
+    h1 {
+        font-size: 1.375rem;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    h3 {
+        font-size: 1.125rem;
+    }
+
+    h4 {
+        font-size: 1rem;
+    }
+
+    h5 {
+        font-size: 0.938rem;
+    }
+
+    h6 {
+        font-size: 0.875rem;
+    }
+}
+
+body.body-md {
+    font-size: 1.125rem !important;
+
+    .menu {
+        font-size: .9375rem;
+    }
+
+    .btn {
+        font-size: 1.125rem !important;
+    }
+
+    .form-control, .nav-link {
+        font-size: 1.125rem !important;
+    }
+
+    .table, .table-sm, .table thead tr th, .table-sm thead tr th {
+        font-size: 1.125rem !important;
+    }
+
+    .metro-layout .icon {
+        margin: 15px auto 15px 45px;
+    }
+
+    .box-post .infos-base .nome {
+        font-size: 1.125rem !important;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.375rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+    }
+
+    h4 {
+        font-size: 1.125rem;
+    }
+
+    h5 {
+        font-size: 1rem;
+    }
+
+    h6 {
+        font-size: 0.938rem;
+    }
+}
+
+body.body-lg {
+    font-size: 1.25rem !important;
+
+    .menu {
+        font-size: .9375rem;
+    }
+
+    .btn {
+        font-size: 1.25rem !important;
+    }
+
+    .form-control, .nav-link {
+        font-size: 1.25rem !important;
+    }
+
+    .table, .table-sm, .table thead tr th, .table-sm thead tr th {
+        font-size: 1.25rem !important;
+    }
+
+    .metro-layout .icon {
+        margin: 15px auto 15px 45px;
+    }
+
+    .box-post .infos-base .nome {
+        font-size: 1.25rem !important;
+    }
+
+    h1 {
+        font-size: 1.625rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.375rem;
+    }
+
+    h4 {
+        font-size: 1.25rem;
+    }
+
+    h5 {
+        font-size: 1.125rem;
+    }
+
+    h6 {
+        font-size: 1rem;
+    }
+}
+
+@media print {
+    body.body-lg {
+        font-size: .9375rem !important;
+
+        .btn, .table, .nav-link {
+            font-size: .9375rem !important;
+        }
+
+        .form-control {
+            font-size: 1rem !important;
+        }
+
+        .table-sm {
+            font-size: .8125rem !important;
+        }
+
+        .table thead tr th, .table-sm thead tr th {
+            font-size: .625rem !important;
+        }
+
+        .metro-layout .icon {
+            margin: 15px auto 15px 45px !important;
+        }
+
+        .box-post .infos-base .nome {
+            font-size: 1.25rem !important;
+        }
+
+        h1 {
+            font-size: 1.25rem !important;
+        }
+
+        h2 {
+            font-size: 1.125rem !important;
+        }
+
+        h3 {
+            font-size: 1rem !important;
+        }
+
+        h4 {
+            font-size: 0.938rem !important;
+        }
+
+        h5 {
+            font-size: 0.875rem !important;
+        }
+
+        h6 {
+            font-size: 0.75rem !important;
+        }
+    }
+}

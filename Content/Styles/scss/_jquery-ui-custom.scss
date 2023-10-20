@@ -1,0 +1,83 @@
+
+
+.ui-icon-box {
+    position: absolute;
+    float: left;
+    padding: 9px 5px;
+}
+
+.ui-tabs {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+    overflow: auto;
+}
+
+.ui-tabs.ui-widget-content {
+    display: grid;
+    grid-template-rows: 42px 1fr;
+}
+
+.ui-tabs .ui-tabs-nav {
+    grid-row: 1;
+    background: #d1def0;
+    border: none;
+    display: flex;
+}
+
+.ui-tabs .ui-tabs-nav li {
+    background: none;
+    border: none;
+    float: none;
+    display: flex;
+    align-items: center;
+}
+
+.ui-tabs .ui-tabs-nav li .icon-close {
+    margin: 0 0.3em;
+}
+
+.ui-tabs .ui-tabs-nav li a {
+    color: #1d1d1d;
+}
+
+.ui-tabs .ui-tabs-nav li.ui-tabs-active {
+    background: #FFF;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    z-index: 1;
+}
+
+.ui-tabs .ui-tabs-nav li .icon-close + .ui-tabs-anchor {
+    padding-left: 0;
+}
+
+.ui-tabs .ui-tabs-nav li.ui-tabs-active a {
+    color: #000;
+}
+
+.ui-tabs .ui-tabs-nav li.ui-tabs-active .icon-close::before,
+.ui-tabs .ui-tabs-nav li.ui-tabs-active .icon-close::after {
+    background-color: #000;
+}
+
+.ui-tabs .ui-tabs-nav .ui-state-hover {
+    border: 0;
+    border-bottom-width: 0;
+    background: #fff;
+}
+
+.ui-tabs .ui-tabs-nav .ui-state-hover a {
+    color: #000;
+}
+
+.ui-tabs .ui-tabs-panel {
+    grid-row: 2;
+}
+
+.ui-datepicker-trigger {
+    margin-left: 3px;
+    cursor: pointer;
+}

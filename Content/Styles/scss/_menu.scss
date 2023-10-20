@@ -1,0 +1,452 @@
+#nav,
+#Extratos,
+#dir {
+    display: block;
+}
+
+#nav {
+    position: relative;
+    z-index: 8;
+}
+
+.menu {
+    position: relative;
+    width: 100%;
+    z-index: 8;
+    padding-left: 0;
+    margin-bottom: 0;
+
+
+    li {
+        list-style: none;
+        color: #FFF;
+        cursor: default;
+        z-index: 5;
+        @include transition(0.3s);
+    }
+
+    & > li {
+        display: inline-block;
+        border-bottom: solid 2px transparent;
+        @include transition(0.3s);
+
+        &:hover {
+            border-bottom: solid 2px #007bff;
+        }
+    }
+
+    ul li {
+        border-left: solid 3px transparent;
+        @include transition(0.3s);
+
+        &:hover {
+            border-left: solid 3px #007bff;
+        }
+
+        &:hover > a {
+            color: #007bff;
+        }
+    }
+
+    & li:hover > ul {
+        display: block;
+        @include transition(0.3s);
+    }
+
+    & > li > ul {
+        display: none;
+        padding-left: 0;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        @include transition(0.3s);
+    }
+
+    & > li > ul li {
+        min-width: 200px;
+        background-color: #e0e6ec;
+        @include transition(0.3s);
+    }
+
+    & > li > ul li:hover {
+        background-color: #d3dbe4;
+    }
+
+    & > li > ul > li > ul {
+        padding-left: 0;
+        display: none;
+        position: absolute;
+        left: 100%;
+        top: 0;
+        height: 100%;
+        background-color: #e0e6ec;
+        border-left: solid 1px #c0ccd8;
+        @include transition(0.3s);
+    }
+
+    a {
+        display: block;
+        width: 100%;
+        padding: .5em;
+        color: #333;
+        text-align: left;
+        white-space: nowrap;
+        @include transition(0.3s);
+
+        &:first-child i {
+            font-size: 18px;
+        }
+
+        &:hover {
+            color: #007bff;
+        }
+    }
+}
+
+.navbar-header {
+    width: 100%;
+    padding: 13px;
+    display: none;
+}
+
+.navbar-toggle {
+    display: block;
+    background: url(../img/menu-icones.png) 0 0;
+    width: 24px;
+    height: 24px;
+    background-position: -240px 0;
+    border: none;
+}
+
+#nav .menu-header {
+    background-color: #fff;
+    color: #454545;
+    text-align: center;
+    padding: .5em 0;
+    font-size: .825em;
+}
+
+#nav .menu-header .close {
+    position: absolute;
+    right: 28px;
+    top: 17px;
+    width: 16px;
+    height: 16px;
+    opacity: .3;
+}
+
+#nav .menu-header .close:hover {
+    opacity: 1;
+}
+
+#nav .menu-header .close:before,
+#nav .menu-header .close:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 16px;
+    width: 2px;
+    background-color: #333;
+}
+
+#nav .menu-header .close:before {
+    transform: rotate(45deg);
+}
+
+#nav .menu-header .close:after {
+    transform: rotate(-45deg);
+}
+
+.menu .menu-header {
+    display: none;
+}
+
+.navbar-header {
+    display: none;
+}
+
+
+/*--------CSS NOTIFICAÇÃO-----------------------------*/
+
+.AlertaNotificacao {
+    display: inline-block;
+    background: #fa0c01;
+    color: #fff;
+    width: 14px;
+    height: 14px;
+    line-height: 14px;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 9px;
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    right: 3px;
+}
+
+#listaNotificacoes {
+    max-height: 300px;
+    max-width: 275px;
+    /*width: 340px;*/
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+
+/*Scroll da lista de notificacoes*/
+
+#listaNotificacoes::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
+    background-color: #F5F5F5;
+}
+
+#listaNotificacoes::-webkit-scrollbar {
+    width: 4px;
+    background-color: #F5F5F5;
+}
+
+#listaNotificacoes::-webkit-scrollbar-thumb {
+    background-color: #000000;
+}
+
+
+/*fim scroll*/
+
+#TextoNotificacao div {
+    display: block;
+    width: 255px;
+    background: white;
+    margin: 10px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    color: black;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    line-height: 2px;
+}
+
+#PublicadoEm {
+    text-align: left;
+    font-size: 12px;
+    padding-bottom: 5px;
+}
+
+#Mensagem {
+    text-align: justify;
+    padding: 5px;
+}
+
+#LinkNotificacao a {
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    font-size: 12px;
+}
+
+.sistema {
+    text-align: center;
+}
+
+.sistema .caption-sistema {
+    display: none;
+}
+
+#nav label {
+    display: none;
+}
+
+#nav input.show-menu {
+    display: none;
+}
+
+.icone-menu {
+    background: url(../img/menu-icones.png) 0 0;
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+.icone-menu.icone-menu-consignado {
+    background-position: 0 0;
+}
+
+.icone-menu.icone-menu-habilitacao {
+    background-position: -72px 0;
+}
+
+.icone-menu.icone-menu-financas {
+    background-position: -48px 0;
+}
+
+.icone-menu.icone-menu-veiculos {
+    background-position: -24px 0;
+}
+
+.icone-menu.icone-menu-fiscalizacao {
+    background-position: -96px 0;
+}
+
+.icone-menu.icone-menu-estatistica {
+    background-position: -120px 0;
+}
+
+.icone-menu.icone-menu-inicio {
+    background-position: -144px 0;
+}
+
+.icone-menu.icone-menu-notificacao {
+    background-position: -168px 0;
+}
+
+.icone-menu.icone-menu-desenvolvedor {
+    background-position: -192px 0;
+}
+
+.icone-menu.icone-menu-admin {
+    background-position: -216px 0;
+}
+
+
+/* Telas menores que 600px */
+
+@media screen and (max-width: 600px) {
+    .navbar-header {
+        display: block;
+    }
+    .menu .menu-header {
+        display: block;
+    }
+    #nav {
+        z-index: 8;
+        width: 100%;
+        top: 100%;
+    }
+    #nav a {
+        color: #FFF;
+        padding: 10px
+    }
+    #nav ul {
+        width: 100%;
+        list-style: none;
+        padding: 0px;
+        position: relative;
+        display: none;
+    }
+    #nav ul ul li {
+        margin: 0 0 0 25px;
+    }
+    #nav li>ul {
+        display: none;
+    }
+    #nav:hover>ul,
+    #nav:focus>ul,
+    #nav:active>ul,
+    #nav li:hover>ul,
+    #nav li:focus>ul,
+    #nav li:active>ul {
+        display: block;
+    }
+    #nav ul ul ul li {
+        cursor: pointer;
+    }
+    #nav input.show-menu:checked~ul {
+        display: block;
+    }
+    #nav label {
+        display: block;
+        padding: 10px;
+        margin: 0;
+        cursor: pointer;
+        color: #FFF;
+    }
+    .icone-menu {
+        display: none;
+    }
+    #Notificacao a {
+        display: block;
+        padding: 10px;
+        color: #FFF;
+        text-decoration: none;
+    }
+    #Notificacao ul {
+        padding: 0;
+        margin: 0;
+        float: left;
+        list-style: none;
+    }
+    #Notificacao li {
+        display: inline;
+        list-style: none;
+        position: relative;
+        white-space: break-word;
+        text-align: left;
+        color: #FFF;
+        cursor: default;
+        z-index: 5;
+    }
+    #Notificacao ul ul {
+        position: absolute;
+        left: 0;
+        display: none;
+        background: #2a3235;
+        top: 50px;
+    }
+    #Notificacao ul ul li {
+        width: 240px;
+    }
+    #Notificacao ul ul li:hover {
+        background: #212528;
+    }
+    #TextoNotificacao p {
+        width: 220px;
+        word-wrap: break-word;
+        background: white;
+        color: black;
+        padding-top: 5px;
+        padding-bottom: 10px;
+        padding-left: 5px;
+        line-height: 1.5;
+        margin: 10px;
+        text-align: justify;
+    }
+    #MenuNotificacoes {
+        text-align: center;
+        padding: 13px;
+        width: 50px;
+        height: 50px;
+    }
+    .AlertaNotificacao {
+        background: #fa0c01;
+        color: #fff;
+        width: 12px;
+        height: 12px;
+        line-height: 12px;
+        vertical-align: middle;
+        text-align: center;
+        font-size: 8px;
+        border-radius: 50%;
+        position: relative;
+        top: -20px;
+        left: 18px;
+    }
+}
+
+@media print {
+    * {
+        color: #000;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .caption-sistema {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .caption-sistema {
+        display: block;
+    }
+}

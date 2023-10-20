@@ -1,0 +1,99 @@
+.form-field-outline {
+    padding: .375rem .75rem;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+    .form-control.error-state:focus {
+        border-color: #c30;
+        box-shadow: 0 0 0 0.2rem rgba(204,51,0,.25);
+    }
+
+.form-field:hover::before,
+.form-field:hover::after {
+    background-color: #39ace7;
+}
+
+.form-field.error-state:hover::before,
+.form-field.error-state:hover::after {
+    background-color: #d50000;
+}
+
+.form-field.error-state {
+    border-left: solid 2px #d50000;
+    padding-left: 0.5em;
+}
+
+.form-field.opcional label:after {
+    content: "opcional";
+    margin-left: 0.5em;
+    font-style: italic;
+    font-size: 85%;
+    color: #999999;
+}
+
+.form-field.required label:after {
+    content: "*";
+    color: red;
+    margin-left: 4px;
+}
+
+.form-field {
+    display: block;
+    position: relative;
+}
+
+.form-field-highlight {
+    box-shadow: 0 0 10px #FFBD69;
+    border: 2px solid #FFBD69;
+    border-radius: 0.4em;
+}
+
+.form-field.outline {
+    border: 1px solid #ced4da;
+    border-radius: 0.25em;
+}
+
+.field-validation-error {
+    display: block;
+    color: #d50000;
+    background: #f2dede;
+    font-size: 0.857em;
+    padding: 4px 8px;
+    -webkit-border-radius: 0 0 0.25em 0.25em;
+    -moz-border-radius: 0 0 0.25em 0.25em;
+    border-radius: 0 0 0.25em 0.25em;
+    margin: 0;
+}
+
+.field-info {
+    font-size: .857em;
+    margin-bottom: 0.15em;
+}
+
+.validation-summary-errors {
+    color: #e80c4d;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+textarea.error,
+input[type="text"].error,
+input[type="email"].error,
+input[type="password"].error {
+    background: #faebeb;
+    border: 1px solid #ebadad;
+}
+
+select.form-control:not([size]):not([multiple]) {
+    height: inherit;
+}
+
+input.input-validation-error {
+    border: 1px solid #e80c4d;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}

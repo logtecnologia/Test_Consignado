@@ -1,0 +1,63 @@
+.select3 {
+    position: relative;
+    min-width: 260px;
+}
+
+.select3:not([disabled]) .select3-rendered {
+    cursor: pointer;
+    padding: 0.375rem 0.75rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+
+.select3-button:hover, .select3-button:focus {
+    background-color: #3e8e41;
+}
+
+.select3-content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background-color: white;
+}
+
+.select3-input {
+    width: 100%;
+    padding: .125rem .5rem;
+    background-color: #fff;
+    border: 1px solid #d2ddec;
+    border-radius: .25rem;
+    line-height: 1.75;
+    font-size: .8125rem;
+    color: #00394f;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.select3-input:focus {
+    border-color: #00a99d;
+    box-shadow: transparent;
+    outline: 0;
+}
+
+.select3-content .select3-search-container {
+    padding: .375rem .75rem;
+}
+
+.select3-content.show {
+    display: block
+}
+
+.select3 ul {
+    overflow: auto;
+    max-height: 400px;
+    padding-left: 0;
+}
+
+.select3 ul li {
+    padding: 0.25em 0.75em;
+    color: #6e84a3;
+}
+
+.select3 ul li:hover {
+    color: #00394f;
+}
